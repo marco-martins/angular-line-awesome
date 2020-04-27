@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "angular-line-awesome": [
+        "dist/angular-line-awesome"
+      ],
+      "angular-line-awesome/*": [
+        "dist/angular-line-awesome/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
