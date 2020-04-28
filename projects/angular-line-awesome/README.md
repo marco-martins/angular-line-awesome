@@ -78,13 +78,13 @@ transform   | `String`              | `grow-NUMBER,`<br> `shrink-NUMBER,`<br> `u
 
 **Angular bind sintaxe**
 ```html
-icon: Icon = { prefix: 'lab', iconName: 'github' };
+icon: IconProp = { prefix: 'lab', iconName: 'github' };
 
 <la-icon [icon]="icon"></la-icon>
 ```
 
 ```html
-icon: string[] = ['lab', 'github-alt'];
+icon: IconProp = ['lab', 'github-alt'];
 iconSize: string = '2x';
 
 <la-icon [icon]="icon" [size]="iconSize"></la-icon>
