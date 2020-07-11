@@ -1,4 +1,15 @@
-import { Component, Input, OnChanges, SimpleChanges, HostBinding, Renderer2, Optional, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  HostBinding,
+  Renderer2,
+  Optional,
+  ChangeDetectionStrategy,
+  Inject,
+  ViewEncapsulation
+} from '@angular/core';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { LaStackItemSizeDirective } from '../../directives/la-stack-item-size/la-stack-item-size.directive';
 import {
@@ -18,11 +29,16 @@ import {
   IconNamePrefix,
   laClassList
 } from '../../line-awesome.core';
+import { IconsRegistry } from '../../services/icons-registry.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'la-icon',
   template: '',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./la-icon.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class LaIconComponent implements OnChanges {
   @Input() icon: IconProp;
@@ -46,14 +62,22 @@ export class LaIconComponent implements OnChanges {
    */
   @Input() title?: string;
 
+  private svgIcon: SVGElement;
+
   @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
   @HostBinding('class.ng-la-icon')
-  @HostBinding('attr.title') get titleAttr(): string { return this.title; }
+  @HostBinding('attr.title')
+  get titleAttr(): string {
+    return this.title;
+  }
 
   constructor(
     private sanitizer: DomSanitizer,
     private renderer: Renderer2,
+    // private element: ElementRef,
+    private iconRegistry: IconsRegistry,
     @Optional() private stackItem: LaStackItemSizeDirective,
+    @Optional() @Inject(DOCUMENT) private document: any
   ) {}
 
   /**
@@ -73,9 +97,9 @@ export class LaIconComponent implements OnChanges {
     }
 
     if (changes) {
-      const iconToBeRendered = faNormalizeIcon(this.icon);
+      const iconDefinition = faNormalizeIcon(this.icon);
       const params = this.buildParams();
-      this.renderIcon(iconToBeRendered, params);
+      this.renderIcon(iconDefinition, params);
     }
   }
 
@@ -93,7 +117,10 @@ export class LaIconComponent implements OnChanges {
       stackItemSize: this.stackItem ? this.stackItem.stackItemSize : null
     };
 
-    const parsedTransform = typeof this.transform === 'string' ? parseTransformString(this.transform) : this.transform || {};
+    const parsedTransform =
+      typeof this.transform === 'string'
+        ? parseTransformString(this.transform)
+        : this.transform || {};
 
     return {
       title: this.title,
@@ -104,14 +131,35 @@ export class LaIconComponent implements OnChanges {
   }
 
   private renderIcon(definition: Icon, params: IconParams) {
-    const renderedIcon: HTMLElement = this.renderer.createElement('i');
+    const renderedIcon: HTMLElement = this.renderer.createElement('div');
     // Put all classes together
-    const klasses = [].concat([definition.prefix, `${IconNamePrefix}-${definition.iconName}`], params.classes);
+    const klasses = [].concat(
+      [definition.prefix, `${IconNamePrefix}-${definition.iconName}`],
+      params.classes
+    );
     // Apply css transforms
     this.renderer.setStyle(renderedIcon, 'transform', applyCssTransforms(params.transform));
     // Apply css classes
-    for (const klass of klasses) { this.renderer.addClass(renderedIcon, klass); }
-    // Render icon HTML
+    for (const klass of klasses) {
+      this.renderer.addClass(renderedIcon, klass);
+    }
+    // Render icon SVG
+    const svgData = this.iconRegistry.getIcon(definition);
+    this.svgIcon = this.svgElementFromString(svgData);
+    this.renderer.addClass(this.svgIcon, 'svg-inline');
+    this.renderer.setAttribute(this.svgIcon, 'role', 'img');
+    this.renderer.setAttribute(this.svgIcon, 'aria-hidden', 'true');
+    renderedIcon.appendChild(this.svgIcon);
+
     this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.outerHTML);
+  }
+
+  private svgElementFromString(svgContent: string): SVGElement {
+    const div: HTMLElement = this.renderer.createElement('div');
+    div.innerHTML = svgContent;
+    return (
+      div.querySelector('svg') ||
+      this.document.createElementNS('http://www.w3.org/2000/svg', 'path')
+    );
   }
 }

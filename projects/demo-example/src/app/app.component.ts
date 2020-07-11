@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Transform, Icon } from 'angular-line-awesome/lib/line-awesome.core';
+import { Transform, Icon } from 'projects/angular-line-awesome/src/lib/line-awesome.core';
 
 @Component({
   selector: 'app-root',

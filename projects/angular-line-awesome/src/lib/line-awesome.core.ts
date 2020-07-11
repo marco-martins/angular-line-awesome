@@ -4,13 +4,35 @@ export type IconPrefix = 'las' | 'lab' | 'lar';
 export type FlipProp = 'horizontal' | 'vertical' | 'both';
 export type PullProp = 'left' | 'right';
 export type RotateProp = 90 | 180 | 270;
-export type SizeProp = 'xs' | 'lg' | 'sm' | 'lx' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
+export type SizeProp =
+  | 'xs'
+  | 'lg'
+  | 'sm'
+  | 'lx'
+  | '1x'
+  | '2x'
+  | '3x'
+  | '4x'
+  | '5x'
+  | '6x'
+  | '7x'
+  | '8x'
+  | '9x'
+  | '10x';
 export type IconProp = IconName | [IconPrefix, IconName] | IconLookup;
 
 // INTERFACES
-export interface Styles { [key: string]: string; }
-export interface IconLookup { prefix: IconPrefix; iconName: IconName; }
-export interface Icon { prefix: IconPrefix; iconName: IconName; }
+export interface Styles {
+  [key: string]: string;
+}
+export interface IconLookup {
+  prefix: IconPrefix;
+  iconName: IconName;
+}
+export interface Icon {
+  prefix: IconPrefix;
+  iconName: IconName;
+}
 
 export interface LaProps {
   mask?: IconProp;
@@ -70,8 +92,10 @@ export const faNormalizeIcon = (icon: IconProp): Icon => {
 
   if (typeof icon === 'string') {
     const iconArray = icon.split(' ');
-    if (iconArray.length === 1) { iconArray.unshift(IconDefaultPrefix); }
-    return { prefix: (iconArray[0] as IconPrefix), iconName: iconArray[1] };
+    if (iconArray.length === 1) {
+      iconArray.unshift(IconDefaultPrefix);
+    }
+    return { prefix: iconArray[0] as IconPrefix, iconName: iconArray[1] };
   }
 };
 
@@ -98,10 +122,10 @@ export const laClassList = (props: LaProps): string[] => {
 
 export const applyCssTransforms = (transformObj: Transform): string => {
   const transformsHandlers = {
-    size: (value: number) => `scale(${1 + (value / 10)})`,
+    size: (value: number) => `scale(${1 + value / 10})`,
     rotate: (value: number) => `rotate(${value}deg)`,
-    flipY: (value: boolean) => value ? `scaleY(-1)` : null,
-    flipX: (value: boolean) => value ? `scaleX(-1)` : null,
+    flipY: (value: boolean) => (value ? `scaleY(-1)` : null),
+    flipX: (value: boolean) => (value ? `scaleX(-1)` : null),
     y: (value: number) => `translateY(${value}px)`,
     x: (value: number) => `translateX(${value}px)`
   };
@@ -122,61 +146,64 @@ export const parseTransformString = (transformString: string): Transform => {
     flipY: false
   };
 
-  if (!transformString) { return transform; }
+  if (!transformString) {
+    return transform;
+  }
 
-  return transformString.toLowerCase().split(' ').reduce((acc: Transform, n: any) => {
-    const parts = n.toLowerCase().split('-');
-    const first = parts[0];
-    let rest = parts.slice(1).join('-');
+  return transformString
+    .toLowerCase()
+    .split(' ')
+    .reduce((acc: Transform, n: any) => {
+      const parts = n.toLowerCase().split('-');
+      const first = parts[0];
+      let rest = parts.slice(1).join('-');
 
-    if (first && rest === 'h') {
-      acc.flipX = true;
+      if (first && rest === 'h') {
+        acc.flipX = true;
+        return acc;
+      }
+
+      if (first && rest === 'v') {
+        acc.flipY = true;
+        return acc;
+      }
+
+      rest = parseFloat(rest);
+
+      if (isNaN(rest)) {
+        return acc;
+      }
+
+      switch (first) {
+        case 'grow':
+          acc.size = acc.size + rest;
+          break;
+
+        case 'shrink':
+          acc.size = acc.size - rest;
+          break;
+
+        case 'left':
+          acc.x = acc.x - rest;
+          break;
+
+        case 'right':
+          acc.x = acc.x + rest;
+          break;
+
+        case 'up':
+          acc.y = acc.y - rest;
+          break;
+
+        case 'down':
+          acc.y = acc.y + rest;
+          break;
+
+        case 'rotate':
+          acc.rotate = acc.rotate + rest;
+          break;
+      }
+
       return acc;
-    }
-
-    if (first && rest === 'v') {
-      acc.flipY = true;
-      return acc;
-    }
-
-    rest = parseFloat(rest);
-
-    if (isNaN(rest)) {
-      return acc;
-    }
-
-    switch (first) {
-      case 'grow':
-        acc.size = acc.size + rest;
-        break;
-
-      case 'shrink':
-        acc.size = acc.size - rest;
-        break;
-
-      case 'left':
-        acc.x = acc.x - rest;
-        break;
-
-      case 'right':
-        acc.x = acc.x + rest;
-        break;
-
-      case 'up':
-        acc.y = acc.y - rest;
-        break;
-
-      case 'down':
-        acc.y = acc.y + rest;
-        break;
-
-      case 'rotate':
-        acc.rotate = acc.rotate + rest;
-        break;
-    }
-
-    return acc;
-  }, transform);
+    }, transform);
 };
-
-

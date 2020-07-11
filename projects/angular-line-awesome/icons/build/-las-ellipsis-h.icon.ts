@@ -1,0 +1,6 @@
+import { LineAwesomeIcon } from './line-awesome-icon.model';
+
+export const lasEllipsisH: LineAwesomeIcon = {
+  name: 'las-ellipsis-h',
+  data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M6 14a1.999 1.999 0 100 4 1.999 1.999 0 100-4zm10 0a1.999 1.999 0 100 4 1.999 1.999 0 100-4zm10 0a1.999 1.999 0 100 4 1.999 1.999 0 100-4z"/></svg>`
+};

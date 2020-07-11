@@ -25,21 +25,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "generate-icons": "svg-to-ts"
-  },
-  "svg-to-ts": {
-    "srcFiles": [
-      "./node_modules/line-awesome/svg/*.svg"
-    ],
-    "conversionType": "files",
-    "outputDirectory": "./projects/angular-line-awesome/icons",
-    "interfaceName": "LineAwesomeIcon",
-    "typeName": "lineAwesomeIcon",
-    "prefix": "la",
-    "optimizeForLazyLoading": true,
-    "modelFileName": "line-awesome-icon.model",
-    "additionalModelFile": "./projects/angular-line-awesome/src/lib",
-    "compileSources": true
+    "postbuild": "cpx 'projects/angular-line-awesome/icons/**/*.{d.ts,js}' dist/angular-line-awesome/icons",
+    "generate-icons": "node ./generate-icons.js"
   },
   "dependencies": {
     "@angular/animations": "~9.1.12",
@@ -66,6 +53,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "cpx": "^1.5.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^5.1.0",
