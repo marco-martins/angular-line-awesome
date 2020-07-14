@@ -149,6 +149,7 @@ export class LaIconComponent implements OnChanges {
     this.renderer.addClass(this.svgIcon, 'svg-inline');
     this.renderer.setAttribute(this.svgIcon, 'role', 'img');
     this.renderer.setAttribute(this.svgIcon, 'aria-hidden', 'true');
+    this.renderer.setAttribute(this.svgIcon, 'focusable', 'false');
     renderedIcon.appendChild(this.svgIcon);
 
     this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.outerHTML);

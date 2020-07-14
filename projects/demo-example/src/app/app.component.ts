@@ -22,6 +22,6 @@ export class AppComponent {
     flipY: true
   };
 
-  square: Icon = { prefix: 'las', iconName: 'square' };
-  user: Icon = { prefix: 'las', iconName: 'user' };
+  heartIcon: Icon = { prefix: 'las', iconName: 'heart' };
+  githubIcon: Icon = { prefix: 'lab', iconName: 'github' };
 }

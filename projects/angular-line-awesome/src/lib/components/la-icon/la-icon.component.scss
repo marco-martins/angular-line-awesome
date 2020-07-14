@@ -1,16 +1,12 @@
-// @import '~line-awesome/dist/line-awesome/scss/line-awesome';
-
 @import '~line-awesome/dist/line-awesome/scss/_mixins';
 @import '~line-awesome/dist/line-awesome/scss/_core';
 @import '~line-awesome/dist/line-awesome/scss/_variables';
-// @import '~line-awesome/dist/line-awesome/scss/_path';
 @import '~line-awesome/dist/line-awesome/scss/_larger';
 @import '~line-awesome/dist/line-awesome/scss/_fixed-width';
 @import '~line-awesome/dist/line-awesome/scss/_list';
 @import '~line-awesome/dist/line-awesome/scss/_bordered_pulled';
 @import '~line-awesome/dist/line-awesome/scss/_rotated-flipped';
 @import '~line-awesome/dist/line-awesome/scss/_stacked';
-// @import '~line-awesome/dist/line-awesome/scss/_icons';
 @import '~line-awesome/dist/line-awesome/scss/_screen-reader';
 
 .svg-inline {
@@ -19,6 +15,7 @@
   height: 1em;
   overflow: visible;
   vertical-align: -0.125em;
+  fill: currentColor;
 }
 
 svg:not(:root) {
