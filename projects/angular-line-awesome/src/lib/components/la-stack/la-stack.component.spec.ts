@@ -11,7 +11,7 @@ describe('FaStackComponent', () => {
           <la-icon [icon]="circle" stackItemSize="2x"></la-icon>
           <la-icon [icon]="user" [inverse]="true" stackItemSize="1x"></la-icon>
         </la-stack>
-      `,
+      `
     })
     class HostComponent {
       circle: IconProp = ['las', 'circle'];
@@ -31,7 +31,7 @@ describe('FaStackComponent', () => {
           <la-icon [icon]="circle" stackItemSize="2x"></la-icon>
           <la-icon [icon]="user" [inverse]="true" stackItemSize="1x"></la-icon>
         </la-stack>
-      `,
+      `
     })
     class HostComponent {
       circle: IconProp = ['las', 'circle'];
