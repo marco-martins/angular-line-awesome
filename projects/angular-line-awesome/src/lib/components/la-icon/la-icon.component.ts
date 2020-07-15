@@ -138,7 +138,7 @@ export class LaIconComponent implements OnChanges {
       definition.prefix,
       ...params.classes,
       `${IconNamePrefix}-${definition.iconName}`,
-      'svg-inline'
+      'la-svg-inline'
     ];
     // Apply css classes
     for (const klass of klasses) {

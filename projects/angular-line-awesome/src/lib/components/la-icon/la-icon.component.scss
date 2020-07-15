@@ -12,12 +12,17 @@ $la-li-width: (20em / 14) !default;
 @import '~line-awesome/dist/line-awesome/scss/_stacked';
 // @import '~line-awesome/dist/line-awesome/scss/_screen-reader';
 
-.svg-inline {
+.#{$la-css-prefix}-svg-inline {
   display: inline-block;
   height: 1em;
   overflow: visible;
   vertical-align: -0.125em;
   fill: currentColor;
+}
+
+// Fix the vertical alignment when the element is an svg
+.#{$la-css-prefix}-stack-1x {
+  margin-top: 0.5em;
 }
 
 svg:not(:root) {
