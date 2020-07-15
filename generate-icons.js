@@ -13,24 +13,7 @@ const iconsSets = [
   { icons: brandIcons, folder: 'brand', prefix: 'lab' }
 ];
 
-const execCmd = () => {
-  exec(
-    `npx svg-to-ts -c files -s './${destinationFolder}/**/*.svg' -o './projects/angular-line-awesome/icons' -i 'LineAwesomeIcon' -t 'lineAwesomeIcon' --modelFileName 'line-awesome-icon.model' -p '' -d 'KEBAB'`,
-    (error, stdout, stderr) => {
-      if (error) {
-        console.error(`[error] ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        console.error(`[stderr] ${stderr}`);
-        return;
-      }
-      console.log(`[stdout] ${stdout}`);
-    }
-  );
-};
-
-// Prepare icons structure
+// Prepare icons to convert
 iconsSets.forEach(set => {
   const tempDir = path.join(__dirname, destinationFolder, set.folder);
 
@@ -39,7 +22,6 @@ iconsSets.forEach(set => {
   }
   fs.mkdirSync(tempDir, { recursive: true });
 
-  // Prepar icons
   set.icons.forEach(file => {
     const originalFileName = `${file}.svg`;
     const sourceFileName = file.endsWith('-solid')
@@ -56,5 +38,18 @@ iconsSets.forEach(set => {
   });
 });
 
-// Converte icons
-execCmd();
+// Convert icons to typescript (svg to ts)
+exec(
+  `npx svg-to-ts -c files -s './${destinationFolder}/**/*.svg' -o './projects/angular-line-awesome/icons' -i 'LineAwesomeIcon' -t 'lineAwesomeIcon' --modelFileName 'line-awesome-icon.model' -p '' -d 'KEBAB'`,
+  (error, stdout, stderr) => {
+    if (error) {
+      console.error(`[error] ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.error(`[stderr] ${stderr}`);
+      return;
+    }
+    console.log(`[stdout] ${stdout}`);
+  }
+);

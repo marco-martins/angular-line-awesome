@@ -29,7 +29,7 @@ import {
   IconNamePrefix,
   laClassList
 } from '../../line-awesome.core';
-import { IconsRegistry } from '../../services/icons-registry.service';
+import { AngularLineawesomeIcons } from '../../services/angular-line-awesome-icons.service';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -75,7 +75,7 @@ export class LaIconComponent implements OnChanges {
     private sanitizer: DomSanitizer,
     private renderer: Renderer2,
     // private element: ElementRef,
-    private iconRegistry: IconsRegistry,
+    private iconRegistry: AngularLineawesomeIcons,
     @Optional() private stackItem: LaStackItemSizeDirective,
     @Optional() @Inject(DOCUMENT) private document: any
   ) {}
@@ -151,7 +151,6 @@ export class LaIconComponent implements OnChanges {
     this.renderer.setAttribute(this.svgIcon, 'aria-hidden', 'true');
     this.renderer.setAttribute(this.svgIcon, 'focusable', 'false');
     renderedIcon.appendChild(this.svgIcon);
-
     this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.outerHTML);
   }
 

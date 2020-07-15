@@ -394,7 +394,7 @@
             <em>Angular bind sintaxe:</em>
           </p>
           <p>
-            <code>iconName: IconProp = ['lab', 'github-alt'];</code>
+            <code>iconName: IconProp = ['las', 'hippo'];</code>
             <br />
             <code>iconSize: string = '2x';</code>
           </p>
@@ -415,16 +415,16 @@
           </p>
           <p>
             <code
-              >transform: Transform = &#123;size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY:
+              >transform: Transform = &#123;size: 15, x: 5, y: -5, rotate: 90, flipX: true, flipY:
               true&#125;;</code
             >
           </p>
           <code>
-            &lt;la-icon icon="lab github" [transform]="transform"&gt;&lt;/la-icon&gt;
+            &lt;la-icon icon="las hippo" [transform]="transform"&gt;&lt;/la-icon&gt;
           </code>
         </td>
         <td class="icon text-center">
-          <la-icon icon="lab github" [transform]="transform"></la-icon>
+          <la-icon icon="las hippo" [transform]="transform"></la-icon>
         </td>
       </tr>
 
@@ -442,14 +442,14 @@
           <pre class="code">
 &lt;la-stack size="2x"&gt;
   &lt;la-icon [icon]="heartIcon" stackItemSize="2x"&gt;&lt;/la-icon&gt;
-  &lt;la-icon [icon]="githubIcon" stackItemSize="1x" [inverse]="true"&gt;&lt;/la-icon&gt;
+  &lt;la-icon [icon]="angularIcon" stackItemSize="1x" [inverse]="true"&gt;&lt;/la-icon&gt;
 &lt;/la-stack&gt;</pre
           >
         </td>
         <td class="icon text-center">
           <la-stack size="2x">
             <la-icon [icon]="heartIcon" stackItemSize="2x"></la-icon>
-            <la-icon [icon]="githubIcon" stackItemSize="1x" [inverse]="true"></la-icon>
+            <la-icon [icon]="angularIcon" stackItemSize="1x" [inverse]="true"></la-icon>
           </la-stack>
         </td>
       </tr>

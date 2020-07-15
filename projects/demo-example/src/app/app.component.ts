@@ -9,19 +9,19 @@ import { Transform, Icon } from 'projects/angular-line-awesome/src/lib/line-awes
 export class AppComponent {
   title = 'demo-example';
 
-  iconName: string[] = ['lab', 'github-alt'];
+  iconName: string[] = ['las', 'hippo'];
 
   iconSize = '2x';
 
   transform: Transform = {
-    size: 10,
-    x: 1,
-    y: -1,
+    size: 15,
+    x: 5,
+    y: -5,
     rotate: 90,
     flipX: true,
     flipY: true
   };
 
   heartIcon: Icon = { prefix: 'las', iconName: 'heart' };
-  githubIcon: Icon = { prefix: 'lab', iconName: 'github' };
+  angularIcon: Icon = { prefix: 'lab', iconName: 'angular' };
 }

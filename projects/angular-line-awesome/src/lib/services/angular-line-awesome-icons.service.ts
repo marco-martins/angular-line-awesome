@@ -5,23 +5,23 @@ import { LineAwesomeIcon } from 'projects/angular-line-awesome/icons';
 @Injectable({
   providedIn: 'root'
 })
-export class IconsRegistry {
+export class AngularLineawesomeIcons {
   private registry = new Map<IconProp, string>();
 
-  public registerIcons(icons: LineAwesomeIcon[]): void {
+  public addIcons(icons: LineAwesomeIcon[]): void {
     icons.forEach((icon: LineAwesomeIcon) => {
       this.registry.set(icon.name, icon.data);
     });
   }
 
   public getIcon(icon: Icon): string | undefined {
-    const iconDefinition = `${icon.prefix}-${icon.iconName}`;
+    const iconName = `${icon.prefix}-${icon.iconName}`;
 
-    if (!this.registry.has(iconDefinition)) {
+    if (!this.registry.has(iconName)) {
       console.warn(
-        `We could not find the Icon with the name ${iconDefinition}, did you add it to the Icon registry?`
+        `We could not find the Icon with the name ${iconName}, did you add it to the Icon registry?`
       );
     }
-    return this.registry.get(iconDefinition);
+    return this.registry.get(iconName);
   }
 }
