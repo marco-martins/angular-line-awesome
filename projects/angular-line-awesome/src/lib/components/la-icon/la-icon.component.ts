@@ -131,26 +131,26 @@ export class LaIconComponent implements OnChanges {
   }
 
   private renderIcon(definition: Icon, params: IconParams) {
-    const renderedIcon: HTMLElement = this.renderer.createElement('div');
+    const svgData = this.iconRegistry.getIcon(definition);
+    const renderedIcon: SVGElement = this.svgElementFromString(svgData);
     // Put all classes together
-    const klasses = [].concat(
-      [definition.prefix, `${IconNamePrefix}-${definition.iconName}`],
-      params.classes
-    );
-    // Apply css transforms
-    this.renderer.setStyle(renderedIcon, 'transform', applyCssTransforms(params.transform));
+    const klasses = [
+      definition.prefix,
+      ...params.classes,
+      `${IconNamePrefix}-${definition.iconName}`,
+      'svg-inline'
+    ];
     // Apply css classes
     for (const klass of klasses) {
       this.renderer.addClass(renderedIcon, klass);
     }
-    // Render icon SVG
-    const svgData = this.iconRegistry.getIcon(definition);
-    this.svgIcon = this.svgElementFromString(svgData);
-    this.renderer.addClass(this.svgIcon, 'svg-inline');
-    this.renderer.setAttribute(this.svgIcon, 'role', 'img');
-    this.renderer.setAttribute(this.svgIcon, 'aria-hidden', 'true');
-    this.renderer.setAttribute(this.svgIcon, 'focusable', 'false');
-    renderedIcon.appendChild(this.svgIcon);
+    // Apply css transforms
+    this.renderer.setStyle(renderedIcon, 'transform', applyCssTransforms(params.transform));
+    // Apply attributes
+    this.renderer.setAttribute(renderedIcon, 'role', 'img');
+    this.renderer.setAttribute(renderedIcon, 'aria-hidden', 'true');
+    this.renderer.setAttribute(renderedIcon, 'focusable', 'false');
+    // Inject svg icon
     this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.outerHTML);
   }
 
