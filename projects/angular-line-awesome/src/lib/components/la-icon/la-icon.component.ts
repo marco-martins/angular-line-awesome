@@ -29,7 +29,7 @@ import {
   IconNamePrefix,
   laClassList
 } from '../../line-awesome.core';
-import { AngularLineawesomeIcons } from '../../services/angular-line-awesome-icons.service';
+import { LaIconLibrary } from '../../services/la-icon-library.service';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -72,7 +72,7 @@ export class LaIconComponent implements OnChanges {
   constructor(
     private sanitizer: DomSanitizer,
     private renderer: Renderer2,
-    private iconRegistry: AngularLineawesomeIcons,
+    private iconRegistry: LaIconLibrary,
     @Optional() private stackItem: LaStackItemSizeDirective,
     @Optional() @Inject(DOCUMENT) private document: any
   ) {}
@@ -134,8 +134,7 @@ export class LaIconComponent implements OnChanges {
     const klasses = [
       definition.prefix,
       ...params.classes,
-      `${IconNamePrefix}-${definition.iconName}`,
-      'la-svg-inline'
+      `${IconNamePrefix}-${definition.iconName}`
     ];
     // Apply css classes
     for (const klass of klasses) {

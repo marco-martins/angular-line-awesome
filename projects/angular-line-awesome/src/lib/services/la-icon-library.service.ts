@@ -4,7 +4,7 @@ import { Icon, LineAwesomeIcon } from '../line-awesome.core';
 @Injectable({
   providedIn: 'root'
 })
-export class AngularLineawesomeIcons {
+export class LaIconLibrary {
   private registry = new Map<string, string>();
 
   public addIcons(icons: LineAwesomeIcon[]): void {
@@ -18,7 +18,7 @@ export class AngularLineawesomeIcons {
 
     if (!this.registry.has(iconName)) {
       console.warn(
-        `We could not find the Icon with the name ${iconName}, did you add it to the Icon registry?`
+        `The icon with the name "${iconName}" was not found, did you add it to the icons registry?`
       );
     }
     return this.registry.get(iconName);

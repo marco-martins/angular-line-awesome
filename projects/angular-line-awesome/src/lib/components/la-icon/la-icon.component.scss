@@ -12,7 +12,7 @@ $la-li-width: (20em / 14) !default;
 @import '~line-awesome/dist/line-awesome/scss/_stacked';
 // @import '~line-awesome/dist/line-awesome/scss/_screen-reader';
 
-.#{$la-css-prefix}-svg-inline {
+svg {
   display: inline-block;
   height: 1em;
   overflow: visible;
@@ -20,11 +20,11 @@ $la-li-width: (20em / 14) !default;
   fill: currentColor;
 }
 
+svg:not(:root) {
+  overflow: hidden;
+}
+
 // Fix the vertical alignment when the element is an svg
 .#{$la-css-prefix}-stack-1x {
   margin-top: 0.5em;
-}
-
-svg:not(:root) {
-  overflow: hidden;
 }

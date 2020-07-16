@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {
   AngularLineawesomeModule,
-  AngularLineawesomeIcons
+  LaIconLibrary
 } from 'projects/angular-line-awesome/src/public-api';
-import { lasHippo, lasHeart, labAngular } from 'angular-line-awesome/icons';
+import { lasHippo, lasHeart, labAngular } from 'projects/angular-line-awesome/icons';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +14,7 @@ import { lasHippo, lasHeart, labAngular } from 'angular-line-awesome/icons';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(icons: AngularLineawesomeIcons) {
-    icons.addIcons([lasHippo, lasHeart, labAngular]);
+  constructor(library: LaIconLibrary) {
+    library.addIcons([lasHippo, lasHeart, labAngular]);
   }
 }
