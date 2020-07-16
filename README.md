@@ -13,13 +13,13 @@ _Click [here](https://angular-line-awesome.herokuapp.com/) to see the demo examp
 
 ```typescript
 //...
-import { AngularLineAwesomeModule } from "angular-line-awesome";
+import { AngularLineAwesomeModule } from 'angular-line-awesome';
 @NgModule({
   //...
   imports: [
     //...
-    AngularLineAwesomeModule,
-  ],
+    AngularLineAwesomeModule
+  ]
   //...
 })
 export class AppModule {}
@@ -85,10 +85,7 @@ _NOTE: If using SCSS preprocessor just change the `css` for `scss`
 <la-icon icon="hippo" pulse="true"></la-icon>
 <la-icon icon="hippo" border="true"></la-icon>
 <la-icon icon="hippo" inverse="true"></la-icon>
-<la-icon
-  icon="hippo"
-  transform="grow-10 down-4 right-8 rotate-45 flip-v flip-h"
-></la-icon>
+<la-icon icon="hippo" transform="grow-10 down-4 right-8 rotate-45 flip-v flip-h"></la-icon>
 ```
 
 **Angular bind sintaxe**
@@ -106,8 +103,7 @@ icon: IconProp = ['lab', 'github-alt']; iconSize: string = '2x';
 ```
 
 ```html
-transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY:
-true };
+transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY: true };
 
 <la-icon icon="lab github" [transform]="transform"></la-icon>
 ```
@@ -119,7 +115,7 @@ Clone repo:
 git clone git@github.com:marco-martins/angular-line-awesome.git
 
 Build:
-ng build --project=angular-line-awesome
+npm run build -- --project='angular-line-awesome'
 
 Run the project (demo-example by default):
 ng serve

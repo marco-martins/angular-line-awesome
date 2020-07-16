@@ -1,4 +1,4 @@
-import { LineAwesomeIcon } from './line-awesome-icon.model';
+import { LineAwesomeIcon } from './line-awesome-icon';
 
 export const lasThermometerThreeQuarters: LineAwesomeIcon = {
   name: 'las-thermometer-three-quarters',

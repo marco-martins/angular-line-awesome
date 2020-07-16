@@ -1542,4 +1542,4 @@ export * from './build/-las-wrench.icon';
 export * from './build/-las-x-ray.icon';
 export * from './build/-las-yen-sign.icon';
 export * from './build/-las-yin-yang.icon';
-export * from './build/line-awesome-icon.model';
+export * from './build/line-awesome-icon';

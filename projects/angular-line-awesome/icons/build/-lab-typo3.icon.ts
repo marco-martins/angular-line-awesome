@@ -1,4 +1,4 @@
-import { LineAwesomeIcon } from './line-awesome-icon.model';
+import { LineAwesomeIcon } from './line-awesome-icon';
 
 export const labTypo3: LineAwesomeIcon = {
   name: 'lab-typo-3',

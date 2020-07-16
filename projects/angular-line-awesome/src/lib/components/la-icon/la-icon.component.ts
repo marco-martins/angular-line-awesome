@@ -62,8 +62,6 @@ export class LaIconComponent implements OnChanges {
    */
   @Input() title?: string;
 
-  private svgIcon: SVGElement;
-
   @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
   @HostBinding('class.ng-la-icon')
   @HostBinding('attr.title')
@@ -74,7 +72,6 @@ export class LaIconComponent implements OnChanges {
   constructor(
     private sanitizer: DomSanitizer,
     private renderer: Renderer2,
-    // private element: ElementRef,
     private iconRegistry: AngularLineawesomeIcons,
     @Optional() private stackItem: LaStackItemSizeDirective,
     @Optional() @Inject(DOCUMENT) private document: any

@@ -25,15 +25,28 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postbuild": "cpx 'projects/angular-line-awesome/icons/**/*.{d.ts,js}' dist/angular-line-awesome/icons",
-    "generate-icons": "node ./generate-icons.js"
+    "postbuild": "node copy-dist-files",
+    "generate-icons": "svg-to-ts"
+  },
+  "svg-to-ts": {
+    "srcFiles": [
+      "./iconsTemp/**/*.svg"
+    ],
+    "outputDirectory": "./projects/angular-line-awesome/icons",
+    "conversionType": "files",
+    "interfaceName": "LineAwesomeIcon",
+    "typeName": "lineAwesomeIconType",
+    "prefix": "",
+    "delimiter": "KEBAB",
+    "optimizeForLazyLoading": true,
+    "modelFileName": "line-awesome-icon",
+    "compileSources": false
   },
   "dependencies": {
     "@angular/animations": "~9.1.12",
     "@angular/common": "~9.1.12",
     "@angular/compiler": "~9.1.12",
     "@angular/core": "~9.1.12",
-    "@angular/localize": "^9.1.12",
     "@angular/platform-browser": "~9.1.12",
     "@angular/platform-browser-dynamic": "~9.1.12",
     "express": "^4.17.1",

@@ -1,4 +1,4 @@
-import { LineAwesomeIcon } from './line-awesome-icon.model';
+import { LineAwesomeIcon } from './line-awesome-icon';
 
 export const lasDiceD6: LineAwesomeIcon = {
   name: 'las-dice-d-6',

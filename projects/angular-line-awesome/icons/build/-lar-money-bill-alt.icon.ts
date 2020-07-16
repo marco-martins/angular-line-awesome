@@ -1,4 +1,4 @@
-import { LineAwesomeIcon } from './line-awesome-icon.model';
+import { LineAwesomeIcon } from './line-awesome-icon';
 
 export const larMoneyBillAlt: LineAwesomeIcon = {
   name: 'lar-money-bill-alt',

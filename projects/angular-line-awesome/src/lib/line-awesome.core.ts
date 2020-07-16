@@ -33,7 +33,10 @@ export interface Icon {
   prefix: IconPrefix;
   iconName: IconName;
 }
-
+export interface LineAwesomeIcon {
+  name: string;
+  data: string;
+}
 export interface LaProps {
   mask?: IconProp;
   className?: string;

@@ -62,7 +62,7 @@
             "main": "projects/demo-example/src/main.ts",
             "polyfills": "projects/demo-example/src/polyfills.ts",
             "tsConfig": "projects/demo-example/tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "projects/demo-example/src/favicon.ico",
               "projects/demo-example/src/assets"

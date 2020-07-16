@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IconProp, Icon } from '../line-awesome.core';
-import { LineAwesomeIcon } from 'projects/angular-line-awesome/icons';
+import { IconProp, Icon, LineAwesomeIcon } from '../line-awesome.core';
 
 @Injectable({
   providedIn: 'root'

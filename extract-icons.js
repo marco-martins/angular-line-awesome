@@ -39,17 +39,17 @@ iconsSets.forEach(set => {
 });
 
 // Convert icons to typescript (svg to ts)
-exec(
-  `npx svg-to-ts -c files -s './${destinationFolder}/**/*.svg' -o './projects/angular-line-awesome/icons' -i 'LineAwesomeIcon' -t 'lineAwesomeIcon' --modelFileName 'line-awesome-icon.model' -p '' -d 'KEBAB'`,
-  (error, stdout, stderr) => {
-    if (error) {
-      console.error(`[error] ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.error(`[stderr] ${stderr}`);
-      return;
-    }
-    console.log(`[stdout] ${stdout}`);
-  }
-);
+// exec(
+//   `npx svg-to-ts -c files -s './${destinationFolder}/**/*.svg' -o './projects/angular-line-awesome/icons' -i 'LineAwesomeIcon' -t 'lineAwesomeIcon' --modelFileName 'line-awesome-icon.model' -p '' -d 'KEBAB'`,
+//   (error, stdout, stderr) => {
+//     if (error) {
+//       console.error(`[error] ${error.message}`);
+//       return;
+//     }
+//     if (stderr) {
+//       console.error(`[stderr] ${stderr}`);
+//       return;
+//     }
+//     console.log(`[stdout] ${stdout}`);
+//   }
+// );

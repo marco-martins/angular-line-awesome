@@ -1,4 +1,4 @@
-import { LineAwesomeIcon } from './line-awesome-icon.model';
+import { LineAwesomeIcon } from './line-awesome-icon';
 
 export const lasSortAlphaDown: LineAwesomeIcon = {
   name: 'las-sort-alpha-down',

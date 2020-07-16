@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LaIconComponent } from './components/la-icon/la-icon.component';
 import { LaStackComponent } from './components/la-stack/la-stack.component';
 import { LaStackItemSizeDirective } from './directives/la-stack-item-size/la-stack-item-size.directive';
-import { AngularLineawesomeIcons } from '../public-api';
+import { AngularLineawesomeIcons } from './services/angular-line-awesome-icons.service';
 import {
   lasUser,
   labGithub,
