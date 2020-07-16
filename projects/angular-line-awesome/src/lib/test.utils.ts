@@ -10,7 +10,8 @@ import {
   labGithub,
   labTwitter,
   lasDog,
-  lasCat
+  lasCat,
+  lasCircle
 } from 'projects/angular-line-awesome/icons';
 
 export function queryByCss(fixture: ComponentFixture<any>, cssSelector: string): HTMLElement {
@@ -25,7 +26,7 @@ export function initTest<T>(component: Type<T>, providers?: any[]): ComponentFix
   });
 
   const iconLibrary = TestBed.inject(LaIconLibrary);
-  iconLibrary.addIcons([lasUser, labGithub, labTwitter, lasDog, lasCat]);
+  iconLibrary.addIcons([lasUser, labGithub, labTwitter, lasDog, lasCat, lasCircle]);
 
   return TestBed.createComponent(component);
 }

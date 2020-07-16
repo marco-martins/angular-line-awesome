@@ -17,8 +17,8 @@ export class LaIconLibrary {
     const iconName = `${icon.prefix}-${icon.iconName}`;
 
     if (!this.registry.has(iconName)) {
-      console.warn(
-        `The icon with the name "${iconName}" was not found, did you add it to the icons registry?`
+      throw new Error(
+        `Could not find icon with prefix=${icon.prefix} and iconName=${icon.iconName} in the icon library.`
       );
     }
     return this.registry.get(iconName);

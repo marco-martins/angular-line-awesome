@@ -367,4 +367,18 @@ describe('LaIconComponent', () => {
       new Error('Property `icon` is required for `la-icon` components.')
     );
   });
+
+  it('should throw an error if the icon is not found in the icon library', () => {
+    @Component({
+      selector: 'la-host',
+      template: '<la-icon icon="lab angular"></la-icon>'
+    })
+    class HostComponent {}
+
+    const fixture = initTest(HostComponent);
+
+    expect(() => fixture.detectChanges()).toThrow(
+      new Error('Could not find icon with prefix=lab and iconName=angular in the icon library.')
+    );
+  });
 });
