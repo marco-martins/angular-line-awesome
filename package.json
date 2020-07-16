@@ -35,7 +35,7 @@
     "outputDirectory": "./projects/angular-line-awesome/icons",
     "conversionType": "files",
     "interfaceName": "LineAwesomeIcon",
-    "typeName": "lineAwesomeIconType",
+    "typeName": "lineAwesomeIcon",
     "prefix": "",
     "delimiter": "KEBAB",
     "optimizeForLazyLoading": true,

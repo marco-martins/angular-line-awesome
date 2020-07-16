@@ -1,5 +1,4 @@
 // TYPES
-export type IconName = string;
 export type IconPrefix = 'las' | 'lab' | 'lar';
 export type FlipProp = 'horizontal' | 'vertical' | 'both';
 export type PullProp = 'left' | 'right';
@@ -20,6 +19,7 @@ export type SizeProp =
   | '9x'
   | '10x';
 export type IconProp = IconName | [IconPrefix, IconName] | IconLookup;
+export type IconName = string;
 
 // INTERFACES
 export interface Styles {
@@ -32,10 +32,6 @@ export interface IconLookup {
 export interface Icon {
   prefix: IconPrefix;
   iconName: IconName;
-}
-export interface LineAwesomeIcon {
-  name: string;
-  data: string;
 }
 export interface LaProps {
   mask?: IconProp;
@@ -76,6 +72,11 @@ export interface Attributes {
   [key: string]: number | string;
 }
 
+export interface LineAwesomeIcon {
+  name: string;
+  data: string;
+}
+
 // FUNCTION HANDLERS
 export const IconNamePrefix = 'la';
 export const IconDefaultPrefix = 'las';
@@ -98,7 +99,7 @@ export const faNormalizeIcon = (icon: IconProp): Icon => {
     if (iconArray.length === 1) {
       iconArray.unshift(IconDefaultPrefix);
     }
-    return { prefix: iconArray[0] as IconPrefix, iconName: iconArray[1] };
+    return { prefix: iconArray[0] as IconPrefix, iconName: iconArray[1] as IconName };
   }
 };
 

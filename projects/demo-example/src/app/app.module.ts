@@ -5,7 +5,7 @@ import {
   AngularLineawesomeModule,
   AngularLineawesomeIcons
 } from 'projects/angular-line-awesome/src/public-api';
-import { lasHippo, lasHeart, labAngular } from 'projects/angular-line-awesome/icons';
+import { lasHippo, lasHeart, labAngular } from 'angular-line-awesome/icons';
 
 @NgModule({
   declarations: [AppComponent],

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { IconProp, Icon, LineAwesomeIcon } from '../line-awesome.core';
+import { Icon, LineAwesomeIcon } from '../line-awesome.core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AngularLineawesomeIcons {
-  private registry = new Map<IconProp, string>();
+  private registry = new Map<string, string>();
 
   public addIcons(icons: LineAwesomeIcon[]): void {
     icons.forEach((icon: LineAwesomeIcon) => {
