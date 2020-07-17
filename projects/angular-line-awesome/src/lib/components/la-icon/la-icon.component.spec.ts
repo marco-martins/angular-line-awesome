@@ -10,7 +10,7 @@ describe('LaIconComponent', () => {
   it('should render the icon with proper icons class', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="icon"></la-icon>',
+      template: '<la-icon [icon]="icon"></la-icon>'
     })
     class HostComponent {
       icon: IconProp = ['las', 'user'];
@@ -19,45 +19,45 @@ describe('LaIconComponent', () => {
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').classList).toContain('las');
-    expect(queryByCss(fixture, 'i').classList).toContain('la-user');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').classList).toContain('las');
+    expect(queryByCss(fixture, 'svg').classList).toContain('la-user');
   });
 
-  it('should render the icon without prefix class', () => {
+  it('should render the icon without prefix class (use the default prefix)', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user"></la-icon>',
+      template: '<la-icon icon="user"></la-icon>'
     })
     class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').classList).toContain('las');
-    expect(queryByCss(fixture, 'i').classList).toContain('la-user');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').classList).toContain('las');
+    expect(queryByCss(fixture, 'svg').classList).toContain('la-user');
   });
 
   it('should render the icon with the passed prefix class', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="lab github"></la-icon>',
+      template: '<la-icon icon="lab github"></la-icon>'
     })
     class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').classList).toContain('lab');
-    expect(queryByCss(fixture, 'i').classList).toContain('la-github');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').classList).toContain('lab');
+    expect(queryByCss(fixture, 'svg').classList).toContain('la-github');
   });
 
   it('should render the icon with the passed prefix class using Angular Object binding syntax', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="icon"></la-icon>',
+      template: '<la-icon [icon]="icon"></la-icon>'
     })
     class HostComponent {
       icon: IconProp = { prefix: 'lab', iconName: 'twitter' };
@@ -66,15 +66,15 @@ describe('LaIconComponent', () => {
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').classList).toContain('lab');
-    expect(queryByCss(fixture, 'i').classList).toContain('la-twitter');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').classList).toContain('lab');
+    expect(queryByCss(fixture, 'svg').classList).toContain('la-twitter');
   });
 
   it('should render the icon with the passed prefix class using Angular Array binding syntax', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="icon"></la-icon>',
+      template: '<la-icon [icon]="icon"></la-icon>'
     })
     class HostComponent {
       icon: IconProp = ['lab', 'twitter'];
@@ -83,11 +83,10 @@ describe('LaIconComponent', () => {
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').classList).toContain('lab');
-    expect(queryByCss(fixture, 'i').classList).toContain('la-twitter');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').classList).toContain('lab');
+    expect(queryByCss(fixture, 'svg').classList).toContain('la-twitter');
   });
-
 
   it('should render the icon with Angular async pipe', () => {
     const laDog: IconProp = { prefix: 'las', iconName: 'dog' };
@@ -95,7 +94,7 @@ describe('LaIconComponent', () => {
 
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="icon | async"></la-icon>',
+      template: '<la-icon [icon]="icon | async"></la-icon>'
     })
     class HostComponent {
       iconSubject = new Subject<any>();
@@ -114,35 +113,37 @@ describe('LaIconComponent', () => {
   it('should render the icon with the passed classes in the input', () => {
     @Component({
       selector: 'la-host',
-      template: `<la-icon icon="user" [classes]="['my-custom-class']"></la-icon>`,
+      template: `
+        <la-icon icon="user" [classes]="['my-custom-class']"></la-icon>
+      `
     })
     class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').classList).toContain('my-custom-class');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').classList).toContain('my-custom-class');
   });
 
   it('should render the icon with size class', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" size="2x"></la-icon>',
+      template: '<la-icon icon="user" size="2x"></la-icon>'
     })
     class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').classList).toContain('la-2x');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').classList).toContain('la-2x');
   });
 
   it('should render the icon with size class using Angular binding syntax', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="icon" [size]="size"></la-icon>',
+      template: '<la-icon [icon]="icon" [size]="size"></la-icon>'
     })
     class HostComponent {
       icon: IconProp = ['las', 'user'];
@@ -152,168 +153,170 @@ describe('LaIconComponent', () => {
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').classList).toContain('la-2x');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').classList).toContain('la-2x');
   });
 
   it('should render the icon with rotate class', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" rotate="90"></la-icon>',
+      template: '<la-icon icon="user" rotate="90"></la-icon>'
     })
     class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').classList).toContain('la-rotate-90');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').classList).toContain('la-rotate-90');
   });
 
   it('should render the icon with css transform grow applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="grow-1"></la-icon>',
+      template: '<la-icon icon="user" transform="grow-1"></la-icon>'
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').style.transform).toContain('scale(1.1)');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').style.transform).toContain('scale(1.1)');
   });
 
   it('should render the icon with css transform shrink applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="shrink-1"></la-icon>',
+      template: '<la-icon icon="user" transform="shrink-1"></la-icon>'
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').style.transform).toContain('scale(0.9)');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').style.transform).toContain('scale(0.9)');
   });
 
   it('should render the icon with css transform rotate applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="rotate-90"></la-icon>',
+      template: '<la-icon icon="user" transform="rotate-90"></la-icon>'
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').style.transform).toContain('rotate(90deg)');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').style.transform).toContain('rotate(90deg)');
   });
 
   it('should render the icon with css transform flip-v applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="flip-v"></la-icon>',
+      template: '<la-icon icon="user" transform="flip-v"></la-icon>'
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').style.transform).toContain('scaleY(-1)');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').style.transform).toContain('scaleY(-1)');
   });
 
   it('should render the icon with css transform flip-h applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="flip-h"></la-icon>',
+      template: '<la-icon icon="user" transform="flip-h"></la-icon>'
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').style.transform).toContain('scaleX(-1)');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').style.transform).toContain('scaleX(-1)');
   });
 
   it('should render the icon with css transform up-1 applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="up-1"></la-icon>',
+      template: '<la-icon icon="user" transform="up-1"></la-icon>'
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').style.transform).toContain('translateY(-1px)');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').style.transform).toContain('translateY(-1px)');
   });
 
   it('should render the icon with css transform down-1 applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="down-1"></la-icon>',
+      template: '<la-icon icon="user" transform="down-1"></la-icon>'
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').style.transform).toContain('translateY(1px)');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').style.transform).toContain('translateY(1px)');
   });
 
   it('should render the icon with css transform left-1 applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="left-1"></la-icon>',
+      template: '<la-icon icon="user" transform="left-1"></la-icon>'
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').style.transform).toContain('translateX(-1px)');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').style.transform).toContain('translateX(-1px)');
   });
 
   it('should render the icon with css transform right-1 applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="right-1"></la-icon>',
+      template: '<la-icon icon="user" transform="right-1"></la-icon>'
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').style.transform).toContain('translateX(1px)');
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').style.transform).toContain('translateX(1px)');
   });
 
   it('should render the icon with several transforms applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="grow-1 up-1 right-1 rotate-90 flip-v flip-h"></la-icon>',
+      template:
+        '<la-icon icon="user" transform="grow-1 up-1 right-1 rotate-90 flip-v flip-h"></la-icon>'
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
-    const transformMock = 'scale(1.1) translateX(1px) translateY(-1px) rotate(90deg) scaleX(-1) scaleY(-1)';
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').style.transform).toContain(transformMock);
+    const transformMock =
+      'scale(1.1) translateX(1px) translateY(-1px) rotate(90deg) scaleX(-1) scaleY(-1)';
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').style.transform).toContain(transformMock);
   });
 
   it('should render the icon with several transforms, when transform input is set using Angular binding syntax', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" [transform]="transform"></la-icon>',
+      template: '<la-icon icon="user" [transform]="transform"></la-icon>'
     })
     class HostComponent {
       transform: Transform = {
@@ -327,11 +330,12 @@ describe('LaIconComponent', () => {
     }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
-    const transformMock = 'scale(1.1) translateX(1px) translateY(-1px) rotate(90deg) scaleX(-1) scaleY(-1)';
+    const transformMock =
+      'scale(1.1) translateX(1px) translateY(-1px) rotate(90deg) scaleX(-1) scaleY(-1)';
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
-    expect(queryByCss(fixture, 'i').style.transform).toContain(transformMock);
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').style.transform).toContain(transformMock);
   });
 
   it('should render the title attribute, when title input is set using Angular binding syntax', () => {
@@ -339,29 +343,42 @@ describe('LaIconComponent', () => {
       selector: 'la-host',
       template: `
         <la-icon icon="user" [title]="'User John Smith'"></la-icon>
-      `,
+      `
     })
     class HostComponent {}
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
 
-    expect(queryByCss(fixture, 'i')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
     expect(queryByCss(fixture, 'la-icon').getAttribute('title')).toBe('User John Smith');
   });
 
   it('should throw an error when icon attribute is missing', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="undefined"></la-icon>',
+      template: '<la-icon [icon]="undefined"></la-icon>'
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture = initTest(HostComponent);
 
     expect(() => fixture.detectChanges()).toThrow(
-      new Error('Property `icon` is required for `la-icon` components.'),
+      new Error('Property `icon` is required for `la-icon` component.')
     );
   });
 
+  it('should throw an error if the icon is not found in the icon library', () => {
+    @Component({
+      selector: 'la-host',
+      template: '<la-icon icon="lab angular"></la-icon>'
+    })
+    class HostComponent {}
+
+    const fixture = initTest(HostComponent);
+
+    expect(() => fixture.detectChanges()).toThrow(
+      new Error('Could not find icon with prefix=lab and iconName=angular in the icon library.')
+    );
+  });
 });

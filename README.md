@@ -1,70 +1,65 @@
 # Angular Line Awesome
-Simple, easy to use [Angular](https://angular.io) component to manage [Line Awesome](https://icons8.com/line-awesome) icons.
+
+Angular Line Awesome is an [Angular](https://angular.io) component to manage [Line Awesome](https://icons8.com/line-awesome) icons.
+
+_Click [here](https://angular-line-awesome.herokuapp.com/) to see the demo examples in the component page._
 
 # How to install
 
-**Install Packages**
-`npm install --save line-awesome angular-line-awesome`
+**Install the package**
 
-**Import the module**
+`npm install --save angular-line-awesome`
+
+**Setup**
+
+1. Import { AngularLineAwesomeModule, LaIconLibrary } from "angular-line-awesome"
+2. Add AngularLineAwesomeModule to the imports array
+3. Inject LaIconLibrary into the constructor of the module
+4. Import an icon like "lasHippo" from "angular-line-awesome/icons"
+5. Add icon to the library with library.addIcons([lasHippo]) in the AppModule constructor
+
 ```typescript
 //...
-import { AngularLineAwesomeModule } from 'angular-line-awesome';
+import { AngularLineAwesomeModule, LaIconLibrary } from 'angular-line-awesome';
+import { lasHippo, lasHeart, labAngular } from 'angular-line-awesome/icons';
+
 @NgModule({
   //...
   imports: [
     //...
     AngularLineAwesomeModule
-  ],
+  ]
   //...
 })
-export class AppModule { }
-```
-
-**If you're using [Angular CLI](https://github.com/angular/angular-cli), add the line-awesome CSS to `styles` inside the `angular-cli.json`**
-```json
-"styles": [
-    "styles.css",
-    "./node_modules/line-awesome/dist/line-awesome/css/line-awesome.css"
-],
-```
-**If you're using [Angular CLI](https://github.com/angular/angular-cli) 6.0.0, add the line-awesome CSS to `styles` inside the `angular.json`**
-```json
-"styles": [
-    "styles.css",
-    "./node_modules/line-awesome/dist/line-awesome/css/line-awesome.css"
-],
-```
-
-*NOTE: If using SCSS preprocessor just change the `css` for `scss`
-`"./node_modules/line-awesome/dist/line-awesome/scss/line-awesome.scss"`*
-
-
-**If you're not using the CLI, import the stylesheet to your `index.html` file**
-```html
-<link rel="stylesheet" type="text/css" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+export class AppModule {
+  constructor(library: LaIconLibrary) {
+    // Add an icon to the library for convenient access in other components
+    library.addIcons([lasHippo, lasHeart, labAngular]);
+  }
+}
 ```
 
 # Usage and options
 
-Name        | Type                  | Options                                                    | Optional
----         | ---                   | ---                                                        | ---
-icon        | `String, IconProp`    | [Line Awesome Icons](https://icons8.com/line-awesome) <br> *Ignore the ***las*** and ***la-*** part, this will be added by default.* | No
-title       | `String`              | Free text                                                  | Yes
-size        | `String`              | `xs, lg, sm, lx, 1x, 2x, 3x, 4x, 5x, 6x, 7x, 8x, 9x, 10x`  | Yes
-fixedWidth  | `Boolean`             | `true, false`                                              | Yes
-rotate      | `Number, String`      | `90, 180, 270`                                             | Yes
-flip        | `String`              | `horizontal, vertical, both`                               | Yes
-pull        | `String`              | `left, right`                                              | Yes
-spin        | `Boolean`             | `true, false`                                              | Yes
-pulse       | `Boolean`             | `true, false`                                              | Yes
-border      | `Boolean`             | `true, false`                                              | Yes
-inverse     | `Boolean`             | `true, false`                                              | Yes
-transform   | `String`              | `grow-NUMBER,`<br> `shrink-NUMBER,`<br> `up-NUMBER,`<br> `left-NUMBER,`<br> `right-NUMBER,`<br> `up-NUMBER,`<br> `down-NUMBER,` <br> `rotate-DEGREES,`<br> `flip-v,` <br> `flip-h` <br><br> *NUMBER is a number representings pixel, DEGREES is a number representings degrees, e.g. **grow-1**, **rotate-90*** | Yes
+| Name       | Type               | Options                                                                                                                                                                                                                                                                                                           | Optional |
+| ---------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| icon       | `String, IconProp` | [Line Awesome Icons](https://icons8.com/line-awesome) <br> \*Ignore the **_las_** and **_la-_** part, this will be added by default.\*                                                                                                                                                                            | No       |
+| title      | `String`           | Free text                                                                                                                                                                                                                                                                                                         | Yes      |
+| size       | `String`           | `xs, lg, sm, lx, 1x, 2x, 3x, 4x, 5x, 6x, 7x, 8x, 9x, 10x`                                                                                                                                                                                                                                                         | Yes      |
+| fixedWidth | `Boolean`          | `true, false`                                                                                                                                                                                                                                                                                                     | Yes      |
+| rotate     | `Number, String`   | `90, 180, 270`                                                                                                                                                                                                                                                                                                    | Yes      |
+| flip       | `String`           | `horizontal, vertical, both`                                                                                                                                                                                                                                                                                      | Yes      |
+| pull       | `String`           | `left, right`                                                                                                                                                                                                                                                                                                     | Yes      |
+| spin       | `Boolean`          | `true, false`                                                                                                                                                                                                                                                                                                     | Yes      |
+| pulse      | `Boolean`          | `true, false`                                                                                                                                                                                                                                                                                                     | Yes      |
+| border     | `Boolean`          | `true, false`                                                                                                                                                                                                                                                                                                     | Yes      |
+| inverse    | `Boolean`          | `true, false`                                                                                                                                                                                                                                                                                                     | Yes      |
+| transform  | `String`           | `grow-NUMBER,`<br> `shrink-NUMBER,`<br> `up-NUMBER,`<br> `left-NUMBER,`<br> `right-NUMBER,`<br> `up-NUMBER,`<br> `down-NUMBER,` <br> `rotate-DEGREES,`<br> `flip-v,` <br> `flip-h` <br><br> \*NUMBER is a number representings pixel, DEGREES is a number representings degrees, e.g. **grow-1**, **rotate-90\*** | Yes      |
 
 **Examples**
+
 ```html
-<la-icon icon="hippo" ></la-icon>
+<la-icon icon="hippo"></la-icon>
 <la-icon icon="hippo" size="2x"></la-icon>
 <la-icon icon="hippo" rotate="90"></la-icon>
 <la-icon icon="hippo" flip="horizontal"></la-icon>
@@ -73,38 +68,84 @@ transform   | `String`              | `grow-NUMBER,`<br> `shrink-NUMBER,`<br> `u
 <la-icon icon="hippo" pulse="true"></la-icon>
 <la-icon icon="hippo" border="true"></la-icon>
 <la-icon icon="hippo" inverse="true"></la-icon>
-<la-icon icon="hippo" transform="grow-10 down-4 right-8 rotate-45 flip-v flip-h"></la-icon>
+<la-icon icon="las hippo" transform="grow-10 down-4 right-8 rotate-45 flip-v flip-h"></la-icon>
 ```
 
-**Angular bind sintaxe**
-```html
-icon: IconProp = { prefix: 'lab', iconName: 'github' };
+Note: the prefix is not necessary because the library uses the prefix 'las' as default.
 
+**Angular bind sintaxe**
+
+```html
+<!-- ['las', 'hippo'] is an array that indicates the [prefix, iconName] -->
+<la-icon [icon]="['las', 'hippo']"></la-icon>
+```
+
+<br>
+```javascript
+// component ts
+icon: IconProp = { prefix: 'lab', iconName: 'angular' };
+```
+
+```html
+<!-- component view -->
 <la-icon [icon]="icon"></la-icon>
 ```
 
-```html
-icon: IconProp = ['lab', 'github-alt'];
+<br>
+```javascript
+// component ts
+icon: IconProp = ['lab', 'angular'];
 iconSize: string = '2x';
+```
 
+```html
+<!-- component view -->
 <la-icon [icon]="icon" [size]="iconSize"></la-icon>
 ```
 
-```html
+<br>
+```javascript
+// component ts
 transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY: true };
-
-<la-icon icon="lab github" [transform]="transform"></la-icon>
 ```
 
-*Click [here](https://angular-line-awesome.herokuapp.com/) to see the demo examples in the component page.*
+```html
+<!-- component view -->
+<la-icon icon="lab angular" [transform]="transform"></la-icon>
+```
+
+<br>
+
+**Important release notes and braking changes**
+
+**_1.1.x_**
+
+- Angular 9
+- Line Awesome 1.3.0 SVG Icons (the icons are now loaded in SVG format)
+- Tree shakable icons (import only the necessary icons)
+- Removed the Font Icons support
+
+From the 1.0.x version, there is a small breaking changes:
+
+- You need to import the icons that you are using in your AppModule
+- You can now remove the lineawesome package from your node modules
+- Remove the lineawesome styles import on your angular.json file
+
+<br>
+
+**_1.0.x_**
+
+- Angular 8
+- Line Awesome 1.3.0 Font Icons
 
 # Contributions
+
 ```code
 Clone repo:
 git clone git@github.com:marco-martins/angular-line-awesome.git
 
 Build:
-ng build --project=angular-line-awesome
+npm run build -- --project='angular-line-awesome'
 
 Run the project (demo-example by default):
 ng serve
@@ -114,4 +155,5 @@ ng test --project=angular-line-awesome
 ```
 
 # TODO
-- Tree shaking support to import only the necessary icons
+
+- Create separated icons packages to the regular, solid and brands SVG icons

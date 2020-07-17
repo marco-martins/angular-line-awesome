@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Transform, Icon } from 'angular-line-awesome/lib/line-awesome.core';
+import { Transform, Icon } from 'projects/angular-line-awesome/src/lib/line-awesome.core';
 
 @Component({
   selector: 'app-root',
@@ -9,19 +9,19 @@ import { Transform, Icon } from 'angular-line-awesome/lib/line-awesome.core';
 export class AppComponent {
   title = 'demo-example';
 
-  iconName: string[] = ['lab', 'github-alt'];
+  iconName: string[] = ['las', 'hippo'];
 
   iconSize = '2x';
 
   transform: Transform = {
-    size: 10,
-    x: 1,
-    y: -1,
+    size: 15,
+    x: 5,
+    y: -5,
     rotate: 90,
     flipX: true,
     flipY: true
   };
 
-  square: Icon = { prefix: 'las', iconName: 'square' };
-  user: Icon = { prefix: 'las', iconName: 'user' };
+  heartIcon: Icon = { prefix: 'las', iconName: 'heart' };
+  angularIcon: Icon = { prefix: 'lab', iconName: 'angular' };
 }
