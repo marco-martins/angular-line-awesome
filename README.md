@@ -1,6 +1,6 @@
 # Angular Line Awesome
 
-Simple, easy to use [Angular](https://angular.io) component to manage [Line Awesome](https://icons8.com/line-awesome) icons.
+Angular Line Awesome is an [Angular](https://angular.io) component to manage [Line Awesome](https://icons8.com/line-awesome) icons.
 
 _Click [here](https://angular-line-awesome.herokuapp.com/) to see the demo examples in the component page._
 

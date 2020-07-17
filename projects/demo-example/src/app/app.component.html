@@ -4,255 +4,28 @@
     alt="Angular Logo"
     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
   />
-  <span> <b>Angular Line Awesome</b> Demo Examples </span>
+  <span> <b>Angular Line Awesome</b> Demo Examples</span>
 </div>
 
 <div class="content" role="main">
   <h1>Angular Line Awesome</h1>
   <p>
-    Simple, easy to use <a href="https://angular.io" target="_blank">Angular</a> component to manage
-    <a href="https://icons8.com/line-awesome" target="_blank">Line Awesome</a> icons.
+    Angular Line Awesome is an <a href="https://angular.io" target="_blank">Angular</a> component to
+    manage <a href="https://icons8.com/line-awesome" target="_blank">Line Awesome</a> icons.
   </p>
 
-  <h2>How to install</h2>
-  <h4>Install Packages</h4>
-  <pre class="code">    npm install --save line-awesome angular-line-awesome</pre>
-
-  <h4>Import the module</h4>
-  <pre class="code">
-    //...
-    import &#123; AngularLineAwesomeModule &#125; from 'angular-line-awesome';
-    @NgModule(&#123;
-    //...
-      imports: [
-        //...
-        AngularLineAwesomeModule
-      ],
-      //...
-    &#125;)
-    export class AppModule &#123; &#125;</pre
-  >
-
   <h4>
-    If you're using
-    <a href="https://github.com/angular/angular-cli" target="_blank">Angular CLI</a>, add the
-    line-awesome CSS to <em>styles</em> inside the <em>angular-cli.json</em>
+    <p>
+      <a href="https://www.npmjs.com/package/angular-line-awesome" target="_blank"
+        >NPM Pakage and Documention</a
+      >
+    </p>
+    <p>
+      <a href="https://github.com/marco-martins/angular-line-awesome" target="_blank"
+        >Github Repo</a
+      >
+    </p>
   </h4>
-  <pre class="code">
-    "styles": [
-        "styles.css",
-        "./node_modules/line-awesome/dist/line-awesome/css/line-awesome.css"
-    ],</pre
-  >
-
-  <h4>
-    If you're using
-    <a href="https://github.com/angular/angular-cli" target="_blank">Angular CLI</a> 6.0.0, add the
-    line-awesome CSS to <em>styles</em> inside the <em>angular.json</em>
-  </h4>
-  <pre class="code">
-    "styles": [
-        "styles.css",
-        "./node_modules/line-awesome/dist/line-awesome/css/line-awesome.css"
-    ],</pre
-  >
-
-  <small><em>NOTE: If using SCSS preprocessor just change the `css` for `scss`</em></small>
-  <pre class="code">
-      "./node_modules/line-awesome/dist/line-awesome/scss/line-awesome.scss"</pre
-  >
-
-  <h4>If you're not using the CLI, import the stylesheet to your <em>index.html</em> file</h4>
-  <pre
-    class="code"
-  >&lt;link rel="stylesheet" type="text/css" <br/> href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"&gt;
-    </pre>
-
-  <h2>Usage and options</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Property</th>
-        <th width="150">Type</th>
-        <th>Options</th>
-        <th>Optional</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Icon -->
-      <tr>
-        <td>icon</td>
-        <td>
-          <code>String, IconProp</code>
-        </td>
-        <td>
-          Check the
-          <a href="https://icons8.com/line-awesome" target="_blank">Line Awesome icon list</a>.
-          <br />
-          <br />
-          <code>
-            &lt;i class="las la-hippo"&gt;&lt;/i&gt; becomes &lt;la-icon
-            icon="hippo"&gt;&lt;/la-icon&gt;
-          </code>
-          <br />
-          <small>
-            <em>Ignore the <b>las-</b> and <b>la-</b> part, this will be added by default.</em>
-          </small>
-        </td>
-        <td>No</td>
-      </tr>
-
-      <!-- Title -->
-      <tr>
-        <td>title</td>
-        <td>
-          <code>String</code>
-        </td>
-        <td>
-          Free text
-        </td>
-        <td>Yes</td>
-      </tr>
-
-      <!-- Size -->
-      <tr>
-        <td>size</td>
-        <td>
-          <code>String</code>
-        </td>
-        <td>
-          <code>xs, lg, sm, lx, 1x, 2x, 3x, 4x, 5x, 6x, 7x, 8x, 9x, 10x</code>
-        </td>
-        <td>Yes</td>
-      </tr>
-
-      <!-- Fixed Width -->
-      <tr>
-        <td>fixedWidth</td>
-        <td>
-          <code>Boolean</code>
-        </td>
-        <td>
-          <code>true, false</code>
-        </td>
-        <td>Yes</td>
-      </tr>
-
-      <!-- Rotate -->
-      <tr>
-        <td>rotate</td>
-        <td>
-          <code>Number, String</code>
-        </td>
-        <td>
-          <code>90, 190, 270</code>
-        </td>
-        <td>Yes</td>
-      </tr>
-
-      <!-- Flip -->
-      <tr>
-        <td>flip</td>
-        <td>
-          <code>String</code>
-        </td>
-        <td>
-          <code>horizonal, vertical, both</code>
-        </td>
-        <td>Yes</td>
-      </tr>
-
-      <!-- Pull -->
-      <tr>
-        <td>pull</td>
-        <td>
-          <code>String</code>
-        </td>
-        <td>
-          <code>left, right</code>
-        </td>
-        <td>
-          No
-        </td>
-      </tr>
-
-      <!-- Spin -->
-      <tr>
-        <td>spin</td>
-        <td>
-          <code>Boolean</code>
-        </td>
-        <td>
-          <code>true, false</code>
-        </td>
-        <td>Yes</td>
-      </tr>
-
-      <!-- Pulse -->
-      <tr>
-        <td>pulse</td>
-        <td>
-          <code>Boolean</code>
-        </td>
-        <td>
-          <code>true, false</code>
-        </td>
-        <td>Yes</td>
-      </tr>
-
-      <!-- Border -->
-      <tr>
-        <td>border</td>
-        <td>
-          <code>Boolean</code>
-        </td>
-        <td>
-          <code>true, false</code>
-        </td>
-        <td>Yes</td>
-      </tr>
-
-      <!-- Inverse -->
-      <tr>
-        <td>inverse</td>
-        <td>
-          <code>Boolean</code>
-        </td>
-        <td>
-          <code>true, false</code>
-        </td>
-        <td>Yes</td>
-      </tr>
-
-      <!-- Transform -->
-      <tr>
-        <td>transform</td>
-        <td>
-          <code>String</code>
-        </td>
-        <td>
-          <code>grow-NUMBER,</code> <br />
-          <code>shrink-NUMBER,</code> <br />
-          <code>up-NUMBER,</code> <br />
-          <code>left-NUMBER,</code> <br />
-          <code>right-NUMBER,</code> <br />
-          <code>up-NUMBER,</code> <br />
-          <code>down-NUMBER,</code> <br />
-          <code>rotate-DEGREES,</code> <br />
-          <code>flip-v,</code> <br />
-          <code>flip-h</code> <br />
-          <br />
-          <small>
-            <em
-              >NUMBER is a number representings pixels, DEGREES is a number representings degrees,
-              e.g. <strong>grow-1</strong>, <strong>rotate-90</strong></em
-            >
-          </small>
-        </td>
-        <td>Yes</td>
-      </tr>
-    </tbody>
-  </table>
 
   <h2>Examples</h2>
   <table class="examples">
@@ -455,24 +228,5 @@
       </tr>
     </tbody>
   </table>
-
-  <h2>Contributions</h2>
-  <pre class="code">
-Clone repo:
-git clone <a class="text-primary" href="https://github.com/marco-martins/angular-line-awesome" target="_blank">git@github.com:marco-martins/angular-line-awesome.git</a>
-
-Build:
-npm run build -- --project='angular-line-awesome'
-
-Run the project (demo-example by default):
-ng serve
-
-Run the tests:
-ng test --project=angular-line-awesome</pre>
-
-  <h2>TODO</h2>
-  <ul>
-    <li>Tree shaking support to import only the necessary icons</li>
-  </ul>
 </div>
 <!-- /.content -->
