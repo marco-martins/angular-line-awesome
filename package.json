@@ -1,7 +1,7 @@
 {
   "name": "angular-line-awesome",
   "description": "Simple, easy to use Angular component to manage Line Awesome icons.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Marco Martins",
   "license": "MIT License",
   "repository": {
@@ -12,7 +12,8 @@
     "Angular",
     "Line Awesome",
     "Icons",
-    "Icons 8"
+    "Icons 8",
+    "SVG"
   ],
   "engines": {
     "node": "~12.12.0",
@@ -45,7 +46,7 @@
     "delimiter": "KEBAB",
     "optimizeForLazyLoading": true,
     "modelFileName": "line-awesome-icon",
-    "compileSources": false
+    "compileSources": true
   },
   "dependencies": {
     "@angular/animations": "~9.1.12",
