@@ -1,0 +1,27 @@
+$la-css-prefix: la;
+$la-inverse: #fff !default;
+$la-li-width: (20em / 14) !default;
+
+@import '~line-awesome/dist/line-awesome/scss/_larger';
+@import '~line-awesome/dist/line-awesome/scss/_fixed-width';
+@import '~line-awesome/dist/line-awesome/scss/_list';
+@import '~line-awesome/dist/line-awesome/scss/_bordered_pulled';
+@import '~line-awesome/dist/line-awesome/scss/_rotated-flipped';
+@import '~line-awesome/dist/line-awesome/scss/_stacked';
+
+svg {
+  display: inline-block;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+// Fix the vertical alignment when the element is an svg
+.#{$la-css-prefix}-stack-1x {
+  margin-top: 0.5em;
+}

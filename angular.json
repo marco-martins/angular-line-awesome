@@ -14,6 +14,11 @@
           "options": {
             "tsConfig": "projects/angular-line-awesome/tsconfig.lib.json",
             "project": "projects/angular-line-awesome/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-line-awesome/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -63,8 +68,7 @@
               "projects/demo-example/src/assets"
             ],
             "styles": [
-              "projects/demo-example/src/styles.scss",
-              "./node_modules/line-awesome/dist/line-awesome/css/line-awesome.css"
+              "projects/demo-example/src/styles.scss"
             ],
             "scripts": []
           },
@@ -81,7 +85,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -160,6 +163,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "demo-example"
 }
