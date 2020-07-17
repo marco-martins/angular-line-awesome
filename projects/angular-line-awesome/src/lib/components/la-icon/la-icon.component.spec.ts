@@ -364,7 +364,7 @@ describe('LaIconComponent', () => {
     const fixture = initTest(HostComponent);
 
     expect(() => fixture.detectChanges()).toThrow(
-      new Error('Property `icon` is required for `la-icon` components.')
+      new Error('Property `icon` is required for `la-icon` component.')
     );
   });
 

@@ -2,15 +2,12 @@ $la-css-prefix: la;
 $la-inverse: #fff !default;
 $la-li-width: (20em / 14) !default;
 
-// @import '~line-awesome/dist/line-awesome/scss/_mixins';
-@import '~line-awesome/dist/line-awesome/scss/_core';
 @import '~line-awesome/dist/line-awesome/scss/_larger';
 @import '~line-awesome/dist/line-awesome/scss/_fixed-width';
 @import '~line-awesome/dist/line-awesome/scss/_list';
 @import '~line-awesome/dist/line-awesome/scss/_bordered_pulled';
 @import '~line-awesome/dist/line-awesome/scss/_rotated-flipped';
 @import '~line-awesome/dist/line-awesome/scss/_stacked';
-// @import '~line-awesome/dist/line-awesome/scss/_screen-reader';
 
 svg {
   display: inline-block;

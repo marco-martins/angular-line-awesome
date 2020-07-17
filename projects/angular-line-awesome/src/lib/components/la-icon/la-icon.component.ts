@@ -7,7 +7,6 @@ import {
   Renderer2,
   Optional,
   ChangeDetectionStrategy,
-  Inject,
   ViewEncapsulation
 } from '@angular/core';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
@@ -26,11 +25,10 @@ import {
   parseTransformString,
   applyCssTransforms,
   faNormalizeIcon,
-  IconNamePrefix,
-  laClassList
+  laClassList,
+  IconNamePrefix as prefix
 } from '../../line-awesome.core';
 import { LaIconLibrary } from '../../services/la-icon-library.service';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -55,15 +53,14 @@ export class LaIconComponent implements OnChanges {
   @Input() classes?: string[] = [];
   @Input() transform?: string | Transform;
   @Input() mask?: IconProp;
+  @Input() title?: string;
+
+  @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
   /**
    * Specify a title for the icon.
    * This text will be displayed in a tooltip on hover and presented to the
    * screen readers.
    */
-  @Input() title?: string;
-
-  @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
-  @HostBinding('class.ng-la-icon')
   @HostBinding('attr.title')
   get titleAttr(): string {
     return this.title;
@@ -73,8 +70,7 @@ export class LaIconComponent implements OnChanges {
     private sanitizer: DomSanitizer,
     private renderer: Renderer2,
     private iconRegistry: LaIconLibrary,
-    @Optional() private stackItem: LaStackItemSizeDirective,
-    @Optional() @Inject(DOCUMENT) private document: any
+    @Optional() private stackItem: LaStackItemSizeDirective
   ) {}
 
   /**
@@ -90,7 +86,7 @@ export class LaIconComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (!this.icon) {
-      throw new Error('Property `icon` is required for `la-icon` components.');
+      throw new Error('Property `icon` is required for `la-icon` component.');
     }
 
     if (changes) {
@@ -130,22 +126,19 @@ export class LaIconComponent implements OnChanges {
   private renderIcon(definition: Icon, params: IconParams) {
     const svgData = this.iconRegistry.getIcon(definition);
     const renderedIcon: SVGElement = this.svgElementFromString(svgData);
-    // Put all classes together
-    const klasses = [
-      definition.prefix,
-      ...params.classes,
-      `${IconNamePrefix}-${definition.iconName}`
-    ];
-    // Apply css classes
-    for (const klass of klasses) {
-      this.renderer.addClass(renderedIcon, klass);
+    const attributes = {
+      'aria-hidden': 'true',
+      role: 'img',
+      focusable: 'false',
+      // Note: prefix and prefix-icon-name classes are helpfully to make the tests
+      class: [definition.prefix, `${prefix}-${definition.iconName}`, ...params.classes].join(' ')
+    };
+    // Apply attributes, note the classes also goes here
+    for (const [key, value] of Object.entries(attributes)) {
+      this.renderer.setAttribute(renderedIcon, key, value);
     }
     // Apply css transforms
     this.renderer.setStyle(renderedIcon, 'transform', applyCssTransforms(params.transform));
-    // Apply attributes
-    this.renderer.setAttribute(renderedIcon, 'role', 'img');
-    this.renderer.setAttribute(renderedIcon, 'aria-hidden', 'true');
-    this.renderer.setAttribute(renderedIcon, 'focusable', 'false');
     // Inject svg icon
     this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.outerHTML);
   }
@@ -153,9 +146,6 @@ export class LaIconComponent implements OnChanges {
   private svgElementFromString(svgContent: string): SVGElement {
     const div: HTMLElement = this.renderer.createElement('div');
     div.innerHTML = svgContent;
-    return (
-      div.querySelector('svg') ||
-      this.document.createElementNS('http://www.w3.org/2000/svg', 'path')
-    );
+    return div.querySelector('svg');
   }
 }

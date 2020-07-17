@@ -6,14 +6,23 @@ _Click [here](https://angular-line-awesome.herokuapp.com/) to see the demo examp
 
 # How to install
 
-**Install Packages**
-`npm install --save line-awesome angular-line-awesome`
+**Install the package**
 
-**Import the module**
+`npm install --save angular-line-awesome`
+
+**Setup**
+
+1. Import { AngularLineAwesomeModule, LaIconLibrary } from "angular-line-awesome"
+2. Add AngularLineAwesomeModule to the imports array
+3. Inject LaIconLibrary into the constructor of the module
+4. Import an icon like "lasHippo" from "angular-line-awesome/icons"
+5. Add icon to the library with library.addIcons([lasHippo]) in the AppModule constructor
 
 ```typescript
 //...
-import { AngularLineAwesomeModule } from 'angular-line-awesome';
+import { AngularLineAwesomeModule, LaIconLibrary } from 'angular-line-awesome';
+import { lasHippo, lasHeart, labAngular } from 'angular-line-awesome/icons';
+
 @NgModule({
   //...
   imports: [
@@ -22,38 +31,12 @@ import { AngularLineAwesomeModule } from 'angular-line-awesome';
   ]
   //...
 })
-export class AppModule {}
-```
-
-**If you're using [Angular CLI](https://github.com/angular/angular-cli), add the line-awesome CSS to `styles` inside the `angular-cli.json`**
-
-```json
-"styles": [
-    "styles.css",
-    "./node_modules/line-awesome/dist/line-awesome/css/line-awesome.css"
-],
-```
-
-**If you're using [Angular CLI](https://github.com/angular/angular-cli) 6.0.0, add the line-awesome CSS to `styles` inside the `angular.json`**
-
-```json
-"styles": [
-    "styles.css",
-    "./node_modules/line-awesome/dist/line-awesome/css/line-awesome.css"
-],
-```
-
-_NOTE: If using SCSS preprocessor just change the `css` for `scss`
-`"./node_modules/line-awesome/dist/line-awesome/scss/line-awesome.scss"`_
-
-**If you're not using the CLI, import the stylesheet to your `index.html` file**
-
-```html
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
-/>
+export class AppModule {
+  constructor(library: LaIconLibrary) {
+    // Add an icon to the library for convenient access in other components
+    library.addIcons([lasHippo, lasHeart, labAngular]);
+  }
+}
 ```
 
 # Usage and options
@@ -85,28 +68,75 @@ _NOTE: If using SCSS preprocessor just change the `css` for `scss`
 <la-icon icon="hippo" pulse="true"></la-icon>
 <la-icon icon="hippo" border="true"></la-icon>
 <la-icon icon="hippo" inverse="true"></la-icon>
-<la-icon icon="hippo" transform="grow-10 down-4 right-8 rotate-45 flip-v flip-h"></la-icon>
+<la-icon icon="las hippo" transform="grow-10 down-4 right-8 rotate-45 flip-v flip-h"></la-icon>
 ```
+
+Note: the prefix is not necessary because the library uses the prefix 'las' as default.
 
 **Angular bind sintaxe**
 
 ```html
-icon: IconProp = { prefix: 'lab', iconName: 'github' };
+<!-- ['las', 'hippo'] is an array that indicates the [prefix, iconName] -->
+<la-icon [icon]="['las', 'hippo']"></la-icon>
+```
 
+<br>
+```javascript
+// component ts
+icon: IconProp = { prefix: 'lab', iconName: 'angular' };
+```
+
+```html
+<!-- component view -->
 <la-icon [icon]="icon"></la-icon>
 ```
 
-```html
-icon: IconProp = ['lab', 'github-alt']; iconSize: string = '2x';
+<br>
+```javascript
+// component ts
+icon: IconProp = ['lab', 'angular'];
+iconSize: string = '2x';
+```
 
+```html
+<!-- component view -->
 <la-icon [icon]="icon" [size]="iconSize"></la-icon>
 ```
 
-```html
+<br>
+```javascript
+// component ts
 transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY: true };
-
-<la-icon icon="lab github" [transform]="transform"></la-icon>
 ```
+
+```html
+<!-- component view -->
+<la-icon icon="lab angular" [transform]="transform"></la-icon>
+```
+
+<br>
+
+**Important release notes and braking changes**
+
+**_1.1.x_**
+
+- Angular 9
+- Line Awesome 1.3.0 SVG Icons (the icons are now loaded in SVG format)
+- Tree shakable icons (import only the necessary icons)
+- Removed the Font Icons support
+
+From the 1.0.x version, there is a small breaking changes:
+
+- You need to import the icons that you are using in your AppModule
+- You can now remove the lineawesome package from your node modules
+- Remove the lineawesome styles import on your angular.json file
+
+<br>
+
+**_1.0.x_**
+
+- Angular 8
+- Line Awesome 1.3.0 Font Icons
 
 # Contributions
 
@@ -126,4 +156,4 @@ ng test --project=angular-line-awesome
 
 # TODO
 
-- Tree shaking support to import only the necessary icons
+- Create separated icons packages to the regular, solid and brands SVG icons
