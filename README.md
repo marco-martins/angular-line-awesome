@@ -118,6 +118,10 @@ transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY: t
 
 **Important release notes and braking changes**
 
+**_1.2.x_**
+
+- Angular 11
+
 **_1.1.x_**
 
 - Angular 9
