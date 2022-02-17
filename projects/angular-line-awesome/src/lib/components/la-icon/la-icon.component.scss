@@ -1,6 +1,6 @@
 $la-css-prefix: la;
 $la-inverse: #fff !default;
-$la-li-width: (20em / 14) !default;
+$la-li-width: calc(20em / 14) !default;
 
 @import '~line-awesome/dist/line-awesome/scss/_larger';
 @import '~line-awesome/dist/line-awesome/scss/_fixed-width';
