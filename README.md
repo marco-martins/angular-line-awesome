@@ -6,7 +6,7 @@ _Click [here](https://angular-line-awesome.herokuapp.com/) to see the demo examp
 
 # How to install
 
-**Install the package**
+**Install the package through [NPM](https://www.npmjs.com/package/angular-line-awesome)**
 
 `npm install --save angular-line-awesome`
 
@@ -79,8 +79,7 @@ Note: the prefix is not necessary because the library uses the prefix 'las' as d
 <!-- ['las', 'hippo'] is an array that indicates the [prefix, iconName] -->
 <la-icon [icon]="['las', 'hippo']"></la-icon>
 ```
-
-<br>
+---
 ```javascript
 // component ts
 icon: IconProp = { prefix: 'lab', iconName: 'angular' };
@@ -90,8 +89,7 @@ icon: IconProp = { prefix: 'lab', iconName: 'angular' };
 <!-- component view -->
 <la-icon [icon]="icon"></la-icon>
 ```
-
-<br>
+---
 ```javascript
 // component ts
 icon: IconProp = ['lab', 'angular'];
@@ -102,8 +100,7 @@ iconSize: string = '2x';
 <!-- component view -->
 <la-icon [icon]="icon" [size]="iconSize"></la-icon>
 ```
-
-<br>
+---
 ```javascript
 // component ts
 transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY: true };
@@ -114,11 +111,9 @@ transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY: t
 <la-icon icon="lab angular" [transform]="transform"></la-icon>
 ```
 
-<br>
+## Important release notes and breaking changes
 
-**Important release notes and braking changes**
-
-**_1.3.x_**
+**_13.0.x_**
 
 - Angular 13
 
@@ -139,14 +134,13 @@ From the 1.0.x version, there is a small breaking changes:
 - You can now remove the lineawesome package from your node modules
 - Remove the lineawesome styles import on your angular.json file
 
-<br>
 
 **_1.0.x_**
 
 - Angular 8
 - Line Awesome 1.3.0 Font Icons
 
-# Contributions
+## Contributions
 
 ```code
 Clone repo:
@@ -162,6 +156,6 @@ Run the tests:
 ng test --project=angular-line-awesome
 ```
 
-# TODO
+## TODO
 
 - Create separated icons packages to the regular, solid and brands SVG icons
