@@ -2,16 +2,18 @@ $la-css-prefix: la;
 $la-inverse: #fff !default;
 $la-li-width: calc(20em / 14) !default;
 
-@import '~line-awesome/dist/line-awesome/scss/_larger';
-@import '~line-awesome/dist/line-awesome/scss/_fixed-width';
+@import 'line-awesome/dist/line-awesome/scss/_larger';
+@import 'line-awesome/dist/line-awesome/scss/_fixed-width';
+
 // To fix the warning ("Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0."):
 // replacing the import for the code modification directly for now, source libary (line-awesome) need to be updated
-// @import '~line-awesome/dist/line-awesome/scss/_list';
+// @import 'line-awesome/dist/line-awesome/scss/_list';
 .#{$la-css-prefix}-ul {
   padding-left: 0;
   margin-left: $la-li-width;
   list-style-type: none;
-  > li {
+
+  >li {
     position: relative;
   }
 }
@@ -22,15 +24,17 @@ $la-li-width: calc(20em / 14) !default;
   text-align: center;
   width: $la-li-width;
   line-height: inherit;
+
   &.#{$la-css-prefix}-lg {
     left: -$la-li-width + calc(4em / 14);
   }
 }
+
 // end of import '~line-awesome/dist/line-awesome/scss/_list'
 
-@import '~line-awesome/dist/line-awesome/scss/_bordered_pulled';
-@import '~line-awesome/dist/line-awesome/scss/_rotated-flipped';
-@import '~line-awesome/dist/line-awesome/scss/_stacked';
+@import 'line-awesome/dist/line-awesome/scss/_bordered_pulled';
+@import 'line-awesome/dist/line-awesome/scss/_rotated-flipped';
+@import 'line-awesome/dist/line-awesome/scss/_stacked';
 
 svg {
   display: inline-block;
