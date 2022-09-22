@@ -8,7 +8,7 @@ _Click [here](https://angular-line-awesome.herokuapp.com/) to see the demo examp
 
 **Install the package through [NPM](https://www.npmjs.com/package/angular-line-awesome)**
 
-`npm install --save angular-line-awesome`
+`npm install angular-line-awesome`
 
 **Setup**
 
@@ -79,7 +79,9 @@ Note: the prefix is not necessary because the library uses the prefix 'las' as d
 <!-- ['las', 'hippo'] is an array that indicates the [prefix, iconName] -->
 <la-icon [icon]="['las', 'hippo']"></la-icon>
 ```
+
 ---
+
 ```javascript
 // component ts
 icon: IconProp = { prefix: 'lab', iconName: 'angular' };
@@ -89,7 +91,9 @@ icon: IconProp = { prefix: 'lab', iconName: 'angular' };
 <!-- component view -->
 <la-icon [icon]="icon"></la-icon>
 ```
+
 ---
+
 ```javascript
 // component ts
 icon: IconProp = ['lab', 'angular'];
@@ -100,7 +104,9 @@ iconSize: string = '2x';
 <!-- component view -->
 <la-icon [icon]="icon" [size]="iconSize"></la-icon>
 ```
+
 ---
+
 ```javascript
 // component ts
 transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY: true };
@@ -112,6 +118,10 @@ transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY: t
 ```
 
 ## Important release notes and breaking changes
+
+**_14.0.x_**
+
+- Angular 14
 
 **_13.0.x_**
 
@@ -134,7 +144,6 @@ From the 1.0.x version, there is a small breaking changes:
 - You can now remove the lineawesome package from your node modules
 - Remove the lineawesome styles import on your angular.json file
 
-
 **_1.0.x_**
 
 - Angular 8
@@ -147,13 +156,15 @@ Clone repo:
 git clone git@github.com:marco-martins/angular-line-awesome.git
 
 Build:
-npm run build -- --project='angular-line-awesome'
+ng build angular-line-awesome
 
 Run the project (demo-example by default):
 ng serve
 
 Run the tests:
-ng test --project=angular-line-awesome
+ng test angular-line-awesome
+
+Pull requests to the DEVELOP branch
 ```
 
 ## TODO

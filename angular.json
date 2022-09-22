@@ -164,5 +164,7 @@
       }
     }
   },
-  "defaultProject": "demo-example"
+  "cli": {
+    "analytics": false
+  }
 }
