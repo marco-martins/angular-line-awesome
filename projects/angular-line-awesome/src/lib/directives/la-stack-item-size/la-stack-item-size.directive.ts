@@ -2,7 +2,7 @@ import { Directive, OnChanges, Input, SimpleChanges } from '@angular/core';
 import { SizeProp } from '../../line-awesome.core';
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'la-icon[stackItemSize]',
 })
 export class LaStackItemSizeDirective implements OnChanges {

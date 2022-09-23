@@ -31,7 +31,7 @@ import {
 import { LaIconLibrary } from '../../services/la-icon-library.service';
 
 @Component({
-  // tslint:disable-next-line: component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'la-icon',
   template: '',
   styleUrls: ['./la-icon.component.scss'],
