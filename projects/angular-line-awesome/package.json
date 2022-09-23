@@ -1,7 +1,7 @@
 {
   "name": "angular-line-awesome",
   "description": "Angular Line Awesome is an Angular component to manage Line Awesome icons.",
-  "version": "14.0.0",
+  "version": "14.0.2",
   "author": "Marco Martins",
   "license": "MIT License",
   "repository": {
@@ -19,14 +19,6 @@
     "url": "https://github.com/marco-martins/angular-line-awesome/issues"
   },
   "homepage": "https://github.com/marco-martins/angular-line-awesome#readme",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
-  },
   "peerDependencies": {
     "@angular/common": ">= 8.2.x <= 14.x.x",
     "@angular/core": ">= 8.2.x <= 14.x.x"
