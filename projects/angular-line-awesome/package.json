@@ -15,6 +15,9 @@
     "Icons 8",
     "SVG"
   ],
+  "exports": {
+    "./icons": "./icons"
+  },
   "bugs": {
     "url": "https://github.com/marco-martins/angular-line-awesome/issues"
   },
