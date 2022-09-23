@@ -156,7 +156,8 @@ Clone repo:
 git clone git@github.com:marco-martins/angular-line-awesome.git
 
 Build:
-ng build angular-line-awesome
+npm run build angular-line-awesome
+Note: It's important to run the build with "npm run build" instead of "ng build" because there are some hooks running on "postbuild"
 
 Run the project (demo-example by default):
 ng serve
