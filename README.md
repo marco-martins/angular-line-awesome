@@ -123,6 +123,10 @@ transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY: t
 
 - Angular 16
 
+**_15.0.x_**
+
+- Angular 15
+
 **_14.0.x_**
 
 - Angular 14
