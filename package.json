@@ -16,7 +16,7 @@
     "SVG"
   ],
   "engines": {
-    "node": "~v18.x.x",
+    "node": "~v20.x.x",
     "npm": "~9.x.x"
   },
   "bugs": {
