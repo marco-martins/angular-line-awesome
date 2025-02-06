@@ -1,7 +1,7 @@
 {
   "name": "angular-line-awesome",
   "description": "Simple, easy to use Angular component to manage Line Awesome icons.",
-  "version": "18.0.2",
+  "version": "19.0.0",
   "author": "Marco Martins",
   "license": "MIT License",
   "repository": {
