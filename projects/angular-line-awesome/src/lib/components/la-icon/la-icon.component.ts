@@ -36,7 +36,8 @@ import { LaIconLibrary } from '../../services/la-icon-library.service';
   template: '',
   styleUrls: ['./la-icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  standalone: false
 })
 export class LaIconComponent implements OnChanges {
   @Input() icon: IconProp;
@@ -71,7 +72,7 @@ export class LaIconComponent implements OnChanges {
     private renderer: Renderer2,
     private iconRegistry: LaIconLibrary,
     @Optional() private stackItem: LaStackItemSizeDirective
-  ) {}
+  ) { }
 
   /**
    * Programmatically trigger rendering of the icon.

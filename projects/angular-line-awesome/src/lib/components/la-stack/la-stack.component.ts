@@ -7,6 +7,7 @@ import { SizeProp, IconNamePrefix } from '../../line-awesome.core';
   template: `
     <ng-content select="la-icon[stackItemSize]"></ng-content>
   `,
+  standalone: false
 })
 export class LaStackComponent implements OnInit, OnChanges {
   /**
