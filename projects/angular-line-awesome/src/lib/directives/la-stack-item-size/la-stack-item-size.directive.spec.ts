@@ -11,6 +11,7 @@ describe('FaStackItemSizeDirective', () => {
           <la-icon [icon]="user" [inverse]="true" stackItemSize="1x"></la-icon>
         </la-stack>
       `,
+      standalone: false
     })
     class HostComponent {
       circle: string[] = ['las', 'circle'];
@@ -32,6 +33,7 @@ describe('FaStackItemSizeDirective', () => {
           <la-icon [icon]="user" [inverse]="true" size="1x" stackItemSize="1x"></la-icon>
         </la-stack>
       `,
+      standalone: false
     })
     class HostComponent {
       circle: string[] = ['las', 'circle'];

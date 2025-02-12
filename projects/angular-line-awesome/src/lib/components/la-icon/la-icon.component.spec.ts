@@ -10,7 +10,8 @@ describe('LaIconComponent', () => {
   it('should render the icon with proper icons class', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="icon"></la-icon>'
+      template: '<la-icon [icon]="icon"></la-icon>',
+      standalone: false
     })
     class HostComponent {
       icon: IconProp = ['las', 'user'];
@@ -27,9 +28,10 @@ describe('LaIconComponent', () => {
   it('should render the icon without prefix class (use the default prefix)', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user"></la-icon>'
+      template: '<la-icon icon="user"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -42,9 +44,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with the passed prefix class', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="lab github"></la-icon>'
+      template: '<la-icon icon="lab github"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -57,7 +60,8 @@ describe('LaIconComponent', () => {
   it('should render the icon with the passed prefix class using Angular Object binding syntax', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="icon"></la-icon>'
+      template: '<la-icon [icon]="icon"></la-icon>',
+      standalone: false
     })
     class HostComponent {
       icon: IconProp = { prefix: 'lab', iconName: 'twitter' };
@@ -74,7 +78,8 @@ describe('LaIconComponent', () => {
   it('should render the icon with the passed prefix class using Angular Array binding syntax', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="icon"></la-icon>'
+      template: '<la-icon [icon]="icon"></la-icon>',
+      standalone: false
     })
     class HostComponent {
       icon: IconProp = ['lab', 'twitter'];
@@ -94,7 +99,8 @@ describe('LaIconComponent', () => {
 
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="icon | async"></la-icon>'
+      template: '<la-icon [icon]="icon | async"></la-icon>',
+      standalone: false
     })
     class HostComponent {
       iconSubject = new Subject<any>();
@@ -115,9 +121,10 @@ describe('LaIconComponent', () => {
       selector: 'la-host',
       template: `
         <la-icon icon="user" [classes]="['my-custom-class']"></la-icon>
-      `
+      `,
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -129,9 +136,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with size class', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" size="2x"></la-icon>'
+      template: '<la-icon icon="user" size="2x"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -143,7 +151,8 @@ describe('LaIconComponent', () => {
   it('should render the icon with size class using Angular binding syntax', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="icon" [size]="size"></la-icon>'
+      template: '<la-icon [icon]="icon" [size]="size"></la-icon>',
+      standalone: false
     })
     class HostComponent {
       icon: IconProp = ['las', 'user'];
@@ -160,9 +169,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with rotate class', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" rotate="90"></la-icon>'
+      template: '<la-icon icon="user" rotate="90"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -174,9 +184,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with css transform grow applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="grow-1"></la-icon>'
+      template: '<la-icon icon="user" transform="grow-1"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -188,9 +199,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with css transform shrink applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="shrink-1"></la-icon>'
+      template: '<la-icon icon="user" transform="shrink-1"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -202,9 +214,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with css transform rotate applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="rotate-90"></la-icon>'
+      template: '<la-icon icon="user" transform="rotate-90"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -216,9 +229,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with css transform flip-v applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="flip-v"></la-icon>'
+      template: '<la-icon icon="user" transform="flip-v"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -230,9 +244,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with css transform flip-h applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="flip-h"></la-icon>'
+      template: '<la-icon icon="user" transform="flip-h"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -244,9 +259,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with css transform up-1 applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="up-1"></la-icon>'
+      template: '<la-icon icon="user" transform="up-1"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -258,9 +274,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with css transform down-1 applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="down-1"></la-icon>'
+      template: '<la-icon icon="user" transform="down-1"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -272,9 +289,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with css transform left-1 applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="left-1"></la-icon>'
+      template: '<la-icon icon="user" transform="left-1"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -286,9 +304,10 @@ describe('LaIconComponent', () => {
   it('should render the icon with css transform right-1 applied', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" transform="right-1"></la-icon>'
+      template: '<la-icon icon="user" transform="right-1"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -301,9 +320,10 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template:
-        '<la-icon icon="user" transform="grow-1 up-1 right-1 rotate-90 flip-v flip-h"></la-icon>'
+        '<la-icon icon="user" transform="grow-1 up-1 right-1 rotate-90 flip-v flip-h"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture: ComponentFixture<HostComponent> = initTest(HostComponent);
     fixture.detectChanges();
@@ -316,7 +336,8 @@ describe('LaIconComponent', () => {
   it('should render the icon with several transforms, when transform input is set using Angular binding syntax', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="user" [transform]="transform"></la-icon>'
+      template: '<la-icon icon="user" [transform]="transform"></la-icon>',
+      standalone: false
     })
     class HostComponent {
       transform: Transform = {
@@ -343,9 +364,10 @@ describe('LaIconComponent', () => {
       selector: 'la-host',
       template: `
         <la-icon icon="user" [title]="'User John Smith'"></la-icon>
-      `
+      `,
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
@@ -357,9 +379,10 @@ describe('LaIconComponent', () => {
   it('should throw an error when icon attribute is missing', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon [icon]="undefined"></la-icon>'
+      template: '<la-icon [icon]="undefined"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture = initTest(HostComponent);
 
@@ -371,9 +394,10 @@ describe('LaIconComponent', () => {
   it('should throw an error if the icon is not found in the icon library', () => {
     @Component({
       selector: 'la-host',
-      template: '<la-icon icon="lab angular"></la-icon>'
+      template: '<la-icon icon="lab angular"></la-icon>',
+      standalone: false
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture = initTest(HostComponent);
 
