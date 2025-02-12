@@ -2,11 +2,44 @@ $la-css-prefix: la;
 $la-inverse: #fff !default;
 $la-li-width: calc(20em / 14) !default;
 
-@import 'line-awesome/dist/line-awesome/scss/_larger';
-@import 'line-awesome/dist/line-awesome/scss/_fixed-width';
+// NOTE: After updating to Angular 19, we encountered several warnings: "Deprecation [plugin angular-sass]" related to Sass @import statements.
+// To temporarily remove this warning, we have decided to extract the code directly here.
+// For now, this should not be a problem because Line Awesome has not been updated for several years and probably will not be anymore :(
+// Anyway, if the Angular Sass plugin is completely removed in the future, we may need to rewrite this CSS code
 
-// To fix the warning ("Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0."):
-// replacing the import for the code modification directly for now, source libary (line-awesome) need to be updated
+// @import 'line-awesome/dist/line-awesome/scss/_larger';
+.#{$la-css-prefix}-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -.0667em;
+}
+
+.#{$la-css-prefix}-xs { font-size: 0.75em; }
+.#{$la-css-prefix}-2x { font-size: 1em; }
+.#{$la-css-prefix}-2x { font-size: 2em; }
+.#{$la-css-prefix}-3x { font-size: 3em; }
+.#{$la-css-prefix}-4x { font-size: 4em; }
+.#{$la-css-prefix}-5x { font-size: 5em; }
+.#{$la-css-prefix}-6x { font-size: 6em; }
+.#{$la-css-prefix}-7x { font-size: 7em; }
+.#{$la-css-prefix}-8x { font-size: 8em; }
+.#{$la-css-prefix}-9x { font-size: 9em; }
+.#{$la-css-prefix}-10x { font-size: 10em; }
+
+.#{$la-css-prefix}-fw {
+  text-align: center;
+  width: 1.25em;
+}
+// end of import '~line-awesome/dist/line-awesome/scss/_larger'
+
+// @import 'line-awesome/dist/line-awesome/scss/_fixed-width';
+.#{$la-css-prefix}-fw {
+    width: 1.25em;
+    text-align: center;
+}
+// end of import '~line-awesome/dist/line-awesome/scss/_fixed-width'
+
+
 // @import '~line-awesome/dist/line-awesome/scss/_list';
 .#{$la-css-prefix}-ul {
   padding-left: 0;
@@ -29,12 +62,163 @@ $la-li-width: calc(20em / 14) !default;
     left: -$la-li-width + calc(4em / 14);
   }
 }
-
 // end of import '~line-awesome/dist/line-awesome/scss/_list'
 
-@import 'line-awesome/dist/line-awesome/scss/_bordered_pulled';
-@import 'line-awesome/dist/line-awesome/scss/_rotated-flipped';
-@import 'line-awesome/dist/line-awesome/scss/_stacked';
+// @import 'line-awesome/dist/line-awesome/scss/_bordered_pulled';
+.#{$la-css-prefix}-border {
+    border: solid 0.08em #eee;
+    border-radius: .1em;
+    padding: .2em .25em .15em;
+}
+
+.#{$la-css-prefix}-pull-left { float: left; }
+.#{$la-css-prefix}-pull-right { float: right; }
+
+.#{$la-css-prefix} {
+    &.#{$la-css-prefix}-pull-left { margin-right: .3em; }
+    &.#{$la-css-prefix}-pull-right { margin-left: .3em; }
+}
+
+.#{$la-css-prefix} {
+    &.pull-left { margin-right: .3em; }
+    &.pull-right { margin-left: .3em; }
+}
+// end of import '~line-awesome/dist/line-awesome/scss/_bordered_pulled'
+
+// @import 'line-awesome/dist/line-awesome/scss/_rotated-flipped';
+.la-pull-left {
+  float: left;
+}
+
+.la-pull-right {
+  float: right;
+}
+
+.la.la-pull-left,
+.las.la-pull-left,
+.lar.la-pull-left,
+.lal.la-pull-left,
+.lab.la-pull-left {
+  margin-right: .3em;
+}
+
+.la.la-pull-right,
+.las.la-pull-right,
+.lar.la-pull-right,
+.lal.la-pull-right,
+.lab.la-pull-right {
+  margin-left: .3em;
+}
+
+.la-spin {
+  -webkit-animation: la-spin 2s infinite linear;
+  animation: la-spin 2s infinite linear;
+}
+
+.la-pulse {
+  -webkit-animation: la-spin 1s infinite steps(8);
+  animation: la-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes la-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes la-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.la-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.la-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.la-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.la-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.la-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+.la-flip-both, .la-flip-horizontal.la-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(-1, -1);
+  transform: scale(-1, -1);
+}
+
+:root .la-rotate-90,
+:root .la-rotate-180,
+:root .la-rotate-270,
+:root .la-flip-horizontal,
+:root .la-flip-vertical,
+:root .la-flip-both {
+  -webkit-filter: none;
+  filter: none;
+}
+// end of import '~line-awesome/dist/line-awesome/scss/_rotated-flipped'
+
+// @import 'line-awesome/dist/line-awesome/scss/_stacked';
+.#{$la-css-prefix}-stack {
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  position: relative;
+  vertical-align: middle;
+  width: 2.5em;
+}
+
+.#{$la-css-prefix}-stack-1x,
+.#{$la-css-prefix}-stack-2x {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.#{$la-css-prefix}-stack-1x {
+  line-height: inherit;
+}
+
+.#{$la-css-prefix}-stack-2x {
+  font-size: 2em;
+}
+
+.#{$la-css-prefix}-inverse {
+  color: $la-inverse;
+}
+// end of import '~line-awesome/dist/line-awesome/scss/_stacked'
 
 svg {
   display: inline-block;
