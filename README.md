@@ -119,6 +119,10 @@ transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY: t
 
 ## Important release notes and breaking changes
 
+**_21.0.x_**
+
+- Angular 21
+
 **_20.0.x_**
 
 - Angular 20
