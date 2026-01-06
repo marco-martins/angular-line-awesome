@@ -16,8 +16,8 @@
     "SVG"
   ],
   "engines": {
-    "node": ">v22.x.x",
-    "npm": ">9.x.x"
+    "node": ">v20.19.0",
+    "npm": ">9.0.0"
   },
   "bugs": {
     "url": "https://github.com/marco-martins/angular-line-awesome/issues"
