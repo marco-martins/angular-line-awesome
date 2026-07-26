@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -14,6 +15,7 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "strict": false,
     "paths": {
       "angular-line-awesome": [
         "dist/angular-line-awesome"
