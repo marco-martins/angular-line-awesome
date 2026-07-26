@@ -1,4 +1,4 @@
-import { OnInit, OnChanges, Component, Input, Renderer2, ElementRef, SimpleChanges } from '@angular/core';
+import { OnInit, OnChanges, Component, Input, Renderer2, ElementRef, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import { SizeProp, IconNamePrefix } from '../../line-awesome.core';
 
 @Component({
@@ -7,6 +7,7 @@ import { SizeProp, IconNamePrefix } from '../../line-awesome.core';
   template: `
     <ng-content select="la-icon[stackItemSize]"></ng-content>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false
 })
 export class LaStackComponent implements OnInit, OnChanges {
