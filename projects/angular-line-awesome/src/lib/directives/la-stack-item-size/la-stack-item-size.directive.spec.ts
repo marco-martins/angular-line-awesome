@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { initTest, queryByCss } from '../../test.utils';
+import { LaStackComponent } from '../../components/la-stack/la-stack.component';
+import { LaIconComponent } from '../../components/la-icon/la-icon.component';
+import { LaStackItemSizeDirective } from './la-stack-item-size.directive';
 
 describe('FaStackItemSizeDirective', () => {
   it('should attach la-stack-1x or la-stack-2x classes to icons', () => {
@@ -11,7 +14,7 @@ describe('FaStackItemSizeDirective', () => {
           <la-icon [icon]="user" [inverse]="true" stackItemSize="1x"></la-icon>
         </la-stack>
       `,
-      standalone: false
+      imports: [LaStackComponent, LaIconComponent, LaStackItemSizeDirective]
     })
     class HostComponent {
       circle: string[] = ['las', 'circle'];
@@ -33,7 +36,7 @@ describe('FaStackItemSizeDirective', () => {
           <la-icon [icon]="user" [inverse]="true" size="1x" stackItemSize="1x"></la-icon>
         </la-stack>
       `,
-      standalone: false
+      imports: [LaStackComponent, LaIconComponent, LaStackItemSizeDirective]
     })
     class HostComponent {
       circle: string[] = ['las', 'circle'];

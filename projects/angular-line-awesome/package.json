@@ -23,7 +23,7 @@
     },
     "homepage": "https://github.com/marco-martins/angular-line-awesome#readme",
     "peerDependencies": {
-        "@angular/common": ">= 8.2.x <= 22.x.x",
-        "@angular/core": ">= 8.2.x <= 22.x.x"
+        "@angular/common": ">= 14.0.0 <= 22.x.x",
+        "@angular/core": ">= 14.0.0 <= 22.x.x"
     }
 }

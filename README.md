@@ -12,22 +12,47 @@ _Click [here](https://angular-line-awesome.marco-martins.com/) to see the demo e
 
 **Setup**
 
-1. Import { AngularLineAwesomeModule, LaIconLibrary } from "angular-line-awesome"
-2. Add AngularLineAwesomeModule to the imports array
-3. Inject LaIconLibrary into the constructor of the module
+`LaIconComponent`, `LaStackComponent` and `LaStackItemSizeDirective` are standalone, so import the ones you need directly.
+
+1. Import `LaIconComponent` (and `LaStackComponent`/`LaStackItemSizeDirective` if you use stacked icons) plus `LaIconLibrary` from "angular-line-awesome"
+2. Add them to your standalone component's or `NgModule`'s `imports` array
+3. Inject `LaIconLibrary` into a constructor
 4. Import an icon like "lasHippo" from "angular-line-awesome/icons"
-5. Add icon to the library with library.addIcons([lasHippo]) in the AppModule constructor
+5. Add the icon to the library with `library.addIcons([lasHippo])`
 
 ```typescript
 //...
-import { AngularLineAwesomeModule, LaIconLibrary } from 'angular-line-awesome';
+import { LaIconComponent, LaIconLibrary } from 'angular-line-awesome';
+import { lasHippo, lasHeart, labAngular } from 'angular-line-awesome/icons';
+
+@Component({
+  //...
+  imports: [
+    //...
+    LaIconComponent
+  ]
+  //...
+})
+export class AppComponent {
+  constructor(library: LaIconLibrary) {
+    // Add an icon to the library for convenient access in other components
+    library.addIcons([lasHippo, lasHeart, labAngular]);
+  }
+}
+```
+
+`NgModule`-based apps work the same way — `NgModule.imports` also accepts standalone components:
+
+```typescript
+//...
+import { LaIconComponent, LaIconLibrary } from 'angular-line-awesome';
 import { lasHippo, lasHeart, labAngular } from 'angular-line-awesome/icons';
 
 @NgModule({
   //...
   imports: [
     //...
-    AngularLineAwesomeModule
+    LaIconComponent
   ]
   //...
 })
@@ -122,6 +147,7 @@ transform: Transform = { size: 1, x: 1, y: -1, rotate: 90, flipX: true, flipY: t
 **_22.0.x_**
 
 - Angular 22
+- **Breaking:** `LaIconComponent`, `LaStackComponent` and `LaStackItemSizeDirective` are now standalone. `AngularLineAwesomeModule` has been removed — import the components/directive you need directly instead (see Setup above).
 
 **_21.0.x_**
 
