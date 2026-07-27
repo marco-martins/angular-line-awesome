@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { Transform, Icon } from 'projects/angular-line-awesome/src/lib/line-awesome.core';
+import { IconProp, SizeProp, Transform, Icon } from 'projects/angular-line-awesome/src/lib/line-awesome.core';
 import { LaIconComponent } from '../../../angular-line-awesome/src/lib/components/la-icon/la-icon.component';
 import { LaStackComponent } from '../../../angular-line-awesome/src/lib/components/la-stack/la-stack.component';
 import { LaStackItemSizeDirective } from '../../../angular-line-awesome/src/lib/directives/la-stack-item-size/la-stack-item-size.directive';
@@ -22,9 +22,9 @@ export class AppComponent {
 
   title = 'demo-example';
 
-  iconName: string[] = ['las', 'hippo'];
+  iconName: IconProp = ['las', 'hippo'];
 
-  iconSize = '2x';
+  iconSize: SizeProp = '2x';
 
   transform: Transform = {
     size: 15,
