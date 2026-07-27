@@ -36,11 +36,11 @@ export interface Icon {
 export interface LaProps {
   mask?: IconProp;
   className?: string;
-  size?: SizeProp;
+  size?: SizeProp | null;
   fixedWidth?: boolean;
-  rotate?: RotateProp;
+  rotate?: RotateProp | null;
   flip?: FlipProp;
-  pull?: PullProp;
+  pull?: PullProp | null;
   spin?: boolean;
   pulse?: boolean;
   border?: boolean;
@@ -48,7 +48,7 @@ export interface LaProps {
   inverse?: boolean;
   transform?: string | Transform;
   style?: Styles;
-  stackItemSize?: '1x' | '2x';
+  stackItemSize?: '1x' | '2x' | null;
 }
 
 export interface Transform {
@@ -62,7 +62,7 @@ export interface Transform {
 
 export interface IconParams {
   title?: string;
-  classes?: string[];
+  classes: string[];
   attributes?: Attributes;
   styles?: Styles;
   transform?: Transform;
@@ -101,6 +101,8 @@ export const faNormalizeIcon = (icon: IconProp): Icon => {
     }
     return { prefix: iconArray[0] as IconPrefix, iconName: iconArray[1] as IconName };
   }
+
+  throw new Error(`Invalid icon: ${JSON.stringify(icon)}`);
 };
 
 export const laClassList = (props: LaProps): string[] => {
@@ -121,11 +123,11 @@ export const laClassList = (props: LaProps): string[] => {
 
   return Object.keys(classes)
     .map(key => (classes[key] ? key : null))
-    .filter(key => key);
+    .filter((key): key is string => key !== null);
 };
 
-export const applyCssTransforms = (transformObj: Transform): string => {
-  const transformsHandlers = {
+export const applyCssTransforms = (transformObj: Transform = {}): string => {
+  const transformsHandlers: Record<keyof Transform, (value: any) => string | null> = {
     size: (value: number) => `scale(${1 + value / 10})`,
     rotate: (value: number) => `rotate(${value}deg)`,
     flipY: (value: boolean) => (value ? `scaleY(-1)` : null),
@@ -134,14 +136,14 @@ export const applyCssTransforms = (transformObj: Transform): string => {
     x: (value: number) => `translateX(${value}px)`
   };
 
-  return Object.keys(transformObj)
+  return (Object.keys(transformObj) as (keyof Transform)[])
     .map(key => transformsHandlers[key](transformObj[key]))
-    .filter(key => key)
+    .filter((value): value is string => value !== null)
     .join(' ');
 };
 
 export const parseTransformString = (transformString: string): Transform => {
-  const transform = {
+  const transform: Required<Transform> = {
     size: 0,
     x: 0,
     y: 0,
@@ -157,7 +159,7 @@ export const parseTransformString = (transformString: string): Transform => {
   return transformString
     .toLowerCase()
     .split(' ')
-    .reduce((acc: Transform, n: any) => {
+    .reduce((acc: Required<Transform>, n: any) => {
       const parts = n.toLowerCase().split('-');
       const first = parts[0];
       let rest = parts.slice(1).join('-');

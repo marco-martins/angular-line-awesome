@@ -39,7 +39,7 @@ import { LaIconLibrary } from '../../services/la-icon-library.service';
   encapsulation: ViewEncapsulation.None
 })
 export class LaIconComponent implements OnChanges {
-  @Input() icon: IconProp;
+  @Input() icon!: IconProp;
   @Input() size?: SizeProp;
   @Input() fixedWidth?: boolean;
   @Input() rotate?: RotateProp;
@@ -50,19 +50,19 @@ export class LaIconComponent implements OnChanges {
   @Input() border?: boolean;
   @Input() inverse?: boolean;
   @Input() styles?: Styles;
-  @Input() classes?: string[] = [];
+  @Input() classes: string[] = [];
   @Input() transform?: string | Transform;
   @Input() mask?: IconProp;
   @Input() title?: string;
 
-  @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
+  @HostBinding('innerHTML') renderedIconHTML!: SafeHtml;
   /**
    * Specify a title for the icon.
    * This text will be displayed in a tooltip on hover and presented to the
    * screen readers.
    */
   @HostBinding('attr.title')
-  get titleAttr(): string {
+  get titleAttr(): string | undefined {
     return this.title;
   }
 
@@ -146,6 +146,6 @@ export class LaIconComponent implements OnChanges {
   private svgElementFromString(svgContent: string): SVGElement {
     const div: HTMLElement = this.renderer.createElement('div');
     div.innerHTML = svgContent;
-    return div.querySelector('svg');
+    return div.querySelector('svg')!;
   }
 }

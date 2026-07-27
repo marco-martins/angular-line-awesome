@@ -13,7 +13,7 @@ export class LaIconLibrary {
     });
   }
 
-  public getIcon(icon: Icon): string | undefined {
+  public getIcon(icon: Icon): string {
     const iconName = `${icon.prefix}-${icon.iconName}`;
 
     if (!this.registry.has(iconName)) {
@@ -21,6 +21,6 @@ export class LaIconLibrary {
         `Could not find icon with prefix=${icon.prefix} and iconName=${icon.iconName} in the icon library.`
       );
     }
-    return this.registry.get(iconName);
+    return this.registry.get(iconName)!;
   }
 }
