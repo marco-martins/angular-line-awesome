@@ -1,9 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Provider, Type } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LaIconComponent } from './components/la-icon/la-icon.component';
-import { LaStackComponent } from './components/la-stack/la-stack.component';
-import { LaStackItemSizeDirective } from './directives/la-stack-item-size/la-stack-item-size.directive';
 import { LaIconLibrary } from './services/la-icon-library.service';
 import {
   lasUser,
@@ -20,7 +16,7 @@ export function queryByCss(fixture: ComponentFixture<unknown>, cssSelector: stri
 
 export function initTest<T>(component: Type<T>, providers?: Provider[]): ComponentFixture<T> {
   TestBed.configureTestingModule({
-    imports: [CommonModule, LaIconComponent, LaStackComponent, LaStackItemSizeDirective, component],
+    imports: [component],
     providers
   });
 
