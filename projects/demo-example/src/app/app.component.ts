@@ -1,9 +1,11 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { IconProp, SizeProp, Transform, Icon } from 'projects/angular-line-awesome/src/lib/line-awesome.core';
-import { LaIconComponent } from '../../../angular-line-awesome/src/lib/components/la-icon/la-icon.component';
-import { LaStackComponent } from '../../../angular-line-awesome/src/lib/components/la-stack/la-stack.component';
-import { LaStackItemSizeDirective } from '../../../angular-line-awesome/src/lib/directives/la-stack-item-size/la-stack-item-size.directive';
-import { LaIconLibrary } from '../../../angular-line-awesome/src/lib/services/la-icon-library.service';
+import {
+  LaIconComponent,
+  LaStackComponent,
+  LaStackItemSizeDirective,
+  LaIconLibrary
+} from 'projects/angular-line-awesome/src/public-api';
 import { lasHippo, lasHeart, labAngular } from 'projects/angular-line-awesome/icons';
 
 @Component({
