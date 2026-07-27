@@ -49,7 +49,6 @@
     "compileSources": true
   },
   "dependencies": {
-    "@angular/animations": "^22.0.8",
     "@angular/common": "^22.0.8",
     "@angular/compiler": "^22.0.8",
     "@angular/core": "^22.0.8",
