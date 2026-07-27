@@ -2,14 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {
-  AngularLineawesomeModule,
+  LaIconComponent,
+  LaStackComponent,
+  LaStackItemSizeDirective,
   LaIconLibrary
 } from 'projects/angular-line-awesome/src/public-api';
 import { lasHippo, lasHeart, labAngular } from 'projects/angular-line-awesome/icons';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AngularLineawesomeModule],
+  imports: [BrowserModule, LaIconComponent, LaStackComponent, LaStackItemSizeDirective],
   providers: [],
   bootstrap: [AppComponent]
 })

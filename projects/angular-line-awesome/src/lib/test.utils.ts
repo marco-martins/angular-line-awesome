@@ -20,8 +20,7 @@ export function queryByCss(fixture: ComponentFixture<any>, cssSelector: string):
 
 export function initTest<T>(component: Type<T>, providers?: any[]): ComponentFixture<T> {
   TestBed.configureTestingModule({
-    imports: [CommonModule],
-    declarations: [LaIconComponent, LaStackComponent, LaStackItemSizeDirective, component],
+    imports: [CommonModule, LaIconComponent, LaStackComponent, LaStackItemSizeDirective, component],
     providers
   });
 

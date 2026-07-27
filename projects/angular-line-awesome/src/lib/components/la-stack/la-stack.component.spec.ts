@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { initTest, queryByCss } from '../../test.utils';
 import { IconProp } from '../../line-awesome.core';
+import { LaStackComponent } from './la-stack.component';
+import { LaIconComponent } from '../la-icon/la-icon.component';
+import { LaStackItemSizeDirective } from '../../directives/la-stack-item-size/la-stack-item-size.directive';
 
 describe('FaStackComponent', () => {
   it('should render stack icon', () => {
@@ -12,7 +15,7 @@ describe('FaStackComponent', () => {
           <la-icon [icon]="user" [inverse]="true" stackItemSize="1x"></la-icon>
         </la-stack>
       `,
-      standalone: false
+      imports: [LaStackComponent, LaIconComponent, LaStackItemSizeDirective]
     })
     class HostComponent {
       circle: IconProp = ['las', 'circle'];
@@ -33,7 +36,7 @@ describe('FaStackComponent', () => {
           <la-icon [icon]="user" [inverse]="true" stackItemSize="1x"></la-icon>
         </la-stack>
       `,
-      standalone: false
+      imports: [LaStackComponent, LaIconComponent, LaStackItemSizeDirective]
     })
     class HostComponent {
       circle: IconProp = ['las', 'circle'];

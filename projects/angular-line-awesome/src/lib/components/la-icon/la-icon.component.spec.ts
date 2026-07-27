@@ -1,7 +1,9 @@
 import { ComponentFixture } from '@angular/core/testing';
 import { Component } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import { SizeProp, IconProp } from '../../line-awesome.core';
 import { queryByCss, initTest } from '../../test.utils';
+import { LaIconComponent } from './la-icon.component';
 import { Transform } from '../../line-awesome.core';
 import { Subject } from 'rxjs';
 import { startWith } from 'rxjs/operators';
@@ -11,7 +13,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon [icon]="icon"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent {
       icon: IconProp = ['las', 'user'];
@@ -29,7 +31,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -45,7 +47,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="lab github"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -61,7 +63,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon [icon]="icon"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent {
       icon: IconProp = { prefix: 'lab', iconName: 'twitter' };
@@ -79,7 +81,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon [icon]="icon"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent {
       icon: IconProp = ['lab', 'twitter'];
@@ -100,7 +102,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon [icon]="icon | async"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent, AsyncPipe]
     })
     class HostComponent {
       iconSubject = new Subject<any>();
@@ -122,7 +124,7 @@ describe('LaIconComponent', () => {
       template: `
         <la-icon icon="user" [classes]="['my-custom-class']"></la-icon>
       `,
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -137,7 +139,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" size="2x"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -152,7 +154,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon [icon]="icon" [size]="size"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent {
       icon: IconProp = ['las', 'user'];
@@ -170,7 +172,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" rotate="90"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -185,7 +187,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" transform="grow-1"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -200,7 +202,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" transform="shrink-1"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -215,7 +217,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" transform="rotate-90"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -230,7 +232,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" transform="flip-v"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -245,7 +247,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" transform="flip-h"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -260,7 +262,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" transform="up-1"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -275,7 +277,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" transform="down-1"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -290,7 +292,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" transform="left-1"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -305,7 +307,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" transform="right-1"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -321,7 +323,7 @@ describe('LaIconComponent', () => {
       selector: 'la-host',
       template:
         '<la-icon icon="user" transform="grow-1 up-1 right-1 rotate-90 flip-v flip-h"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -337,7 +339,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="user" [transform]="transform"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent {
       transform: Transform = {
@@ -365,7 +367,7 @@ describe('LaIconComponent', () => {
       template: `
         <la-icon icon="user" [title]="'User John Smith'"></la-icon>
       `,
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -380,7 +382,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon [icon]="undefined"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 
@@ -395,7 +397,7 @@ describe('LaIconComponent', () => {
     @Component({
       selector: 'la-host',
       template: '<la-icon icon="lab angular"></la-icon>',
-      standalone: false
+      imports: [LaIconComponent]
     })
     class HostComponent { }
 

@@ -1,14 +1,20 @@
-import { OnInit, OnChanges, Component, Input, Renderer2, ElementRef, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
+import {
+  OnInit,
+  OnChanges,
+  Component,
+  Input,
+  Renderer2,
+  ElementRef,
+  SimpleChanges,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { SizeProp, IconNamePrefix } from '../../line-awesome.core';
 
 @Component({
   selector: 'la-stack',
   // TODO: See if it is better to select la-icon and throw if it does not have stackItemSize directive
-  template: `
-    <ng-content select="la-icon[stackItemSize]"></ng-content>
-  `,
-  changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false
+  template: ` <ng-content select="la-icon[stackItemSize]"></ng-content> `,
+  changeDetection: ChangeDetectionStrategy.Eager
 })
 export class LaStackComponent implements OnInit, OnChanges {
   /**
@@ -19,7 +25,10 @@ export class LaStackComponent implements OnInit, OnChanges {
    */
   @Input() size?: SizeProp;
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
+  constructor(
+    private renderer: Renderer2,
+    private elementRef: ElementRef
+  ) {}
 
   ngOnInit() {
     this.renderer.addClass(this.elementRef.nativeElement, 'la-stack');
@@ -28,10 +37,16 @@ export class LaStackComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if ('size' in changes) {
       if (changes.size.currentValue != null) {
-        this.renderer.addClass(this.elementRef.nativeElement, `${IconNamePrefix}-${changes.size.currentValue}`);
+        this.renderer.addClass(
+          this.elementRef.nativeElement,
+          `${IconNamePrefix}-${changes.size.currentValue}`
+        );
       }
       if (changes.size.previousValue != null) {
-        this.renderer.removeClass(this.elementRef.nativeElement, `${IconNamePrefix}-${changes.size.previousValue}`);
+        this.renderer.removeClass(
+          this.elementRef.nativeElement,
+          `${IconNamePrefix}-${changes.size.previousValue}`
+        );
       }
     }
   }

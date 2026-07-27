@@ -3,8 +3,7 @@ import { SizeProp } from '../../line-awesome.core';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'la-icon[stackItemSize]',
-  standalone: false
+  selector: 'la-icon[stackItemSize]'
 })
 export class LaStackItemSizeDirective implements OnChanges {
   /**
@@ -19,7 +18,7 @@ export class LaStackItemSizeDirective implements OnChanges {
     if ('size' in changes) {
       throw new Error(
         'la-icon is not allowed to customize size when used inside la-stack. ' +
-        'Set size on the enclosing la-stack instead: <la-stack size="4x">...</la-stack>.',
+          'Set size on the enclosing la-stack instead: <la-stack size="4x">...</la-stack>.'
       );
     }
   }
