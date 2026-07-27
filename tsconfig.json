@@ -1,8 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "esModuleInterop": true,
@@ -17,11 +15,8 @@
     ],
     "strict": false,
     "paths": {
-      "angular-line-awesome": [
-        "dist/angular-line-awesome"
-      ],
-      "angular-line-awesome/*": [
-        "dist/angular-line-awesome/*"
+      "projects/*": [
+        "./projects/*"
       ]
     },
     "useDefineForClassFields": false
