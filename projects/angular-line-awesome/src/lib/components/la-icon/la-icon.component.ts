@@ -5,9 +5,9 @@ import {
   SimpleChanges,
   HostBinding,
   Renderer2,
-  Optional,
   ChangeDetectionStrategy,
-  ViewEncapsulation
+  ViewEncapsulation,
+  inject
 } from '@angular/core';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { LaStackItemSizeDirective } from '../../directives/la-stack-item-size/la-stack-item-size.directive';
@@ -39,6 +39,11 @@ import { LaIconLibrary } from '../../services/la-icon-library.service';
   encapsulation: ViewEncapsulation.None
 })
 export class LaIconComponent implements OnChanges {
+  private sanitizer = inject(DomSanitizer);
+  private renderer = inject(Renderer2);
+  private iconRegistry = inject(LaIconLibrary);
+  private stackItem = inject(LaStackItemSizeDirective, { optional: true });
+
   @Input() icon!: IconProp;
   @Input() size?: SizeProp;
   @Input() fixedWidth?: boolean;
@@ -65,13 +70,6 @@ export class LaIconComponent implements OnChanges {
   get titleAttr(): string | undefined {
     return this.title;
   }
-
-  constructor(
-    private sanitizer: DomSanitizer,
-    private renderer: Renderer2,
-    private iconRegistry: LaIconLibrary,
-    @Optional() private stackItem: LaStackItemSizeDirective
-  ) {}
 
   /**
    * Programmatically trigger rendering of the icon.

@@ -1,14 +1,25 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { Transform, Icon } from 'projects/angular-line-awesome/src/lib/line-awesome.core';
+import { LaIconComponent } from '../../../angular-line-awesome/src/lib/components/la-icon/la-icon.component';
+import { LaStackComponent } from '../../../angular-line-awesome/src/lib/components/la-stack/la-stack.component';
+import { LaStackItemSizeDirective } from '../../../angular-line-awesome/src/lib/directives/la-stack-item-size/la-stack-item-size.directive';
+import { LaIconLibrary } from '../../../angular-line-awesome/src/lib/services/la-icon-library.service';
+import { lasHippo, lasHeart, labAngular } from 'projects/angular-line-awesome/icons';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [LaIconComponent, LaStackComponent, LaStackItemSizeDirective]
 })
 export class AppComponent {
+  private iconLibrary = inject(LaIconLibrary);
+
+  constructor() {
+    this.iconLibrary.addIcons([lasHippo, lasHeart, labAngular]);
+  }
+
   title = 'demo-example';
 
   iconName: string[] = ['las', 'hippo'];

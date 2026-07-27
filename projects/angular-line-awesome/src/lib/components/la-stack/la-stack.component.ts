@@ -6,17 +6,22 @@ import {
   Renderer2,
   ElementRef,
   SimpleChanges,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  inject
 } from '@angular/core';
 import { SizeProp, IconNamePrefix } from '../../line-awesome.core';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'la-stack',
   // TODO: See if it is better to select la-icon and throw if it does not have stackItemSize directive
   template: ` <ng-content select="la-icon[stackItemSize]"></ng-content> `,
-  changeDetection: ChangeDetectionStrategy.Eager
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LaStackComponent implements OnInit, OnChanges {
+  private renderer = inject(Renderer2);
+  private elementRef = inject(ElementRef);
+
   /**
    * Size of the stacked icon.
    * Note that stacked icon is by default 2 times bigger, than non-stacked icon.
@@ -24,11 +29,6 @@ export class LaStackComponent implements OnInit, OnChanges {
    * simple one. E.g. `la-stack { font-size: 0.5em; }`.
    */
   @Input() size?: SizeProp;
-
-  constructor(
-    private renderer: Renderer2,
-    private elementRef: ElementRef
-  ) {}
 
   ngOnInit() {
     this.renderer.addClass(this.elementRef.nativeElement, 'la-stack');

@@ -8,7 +8,7 @@ import { LaStackItemSizeDirective } from '../../directives/la-stack-item-size/la
 describe('FaStackComponent', () => {
   it('should render stack icon', () => {
     @Component({
-      selector: 'la-host',
+      selector: 'lib-host',
       template: `
         <la-stack>
           <la-icon [icon]="circle" stackItemSize="2x"></la-icon>
@@ -29,7 +29,7 @@ describe('FaStackComponent', () => {
 
   it('should include size class', () => {
     @Component({
-      selector: 'la-host',
+      selector: 'lib-host',
       template: `
         <la-stack size="2x">
           <la-icon [icon]="circle" stackItemSize="2x"></la-icon>

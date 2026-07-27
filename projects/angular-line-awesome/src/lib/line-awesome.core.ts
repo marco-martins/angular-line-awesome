@@ -22,9 +22,7 @@ export type IconProp = IconName | [IconPrefix, IconName] | IconLookup;
 export type IconName = string;
 
 // INTERFACES
-export interface Styles {
-  [key: string]: string;
-}
+export type Styles = Record<string, string>;
 export interface IconLookup {
   prefix: IconPrefix;
   iconName: IconName;
@@ -68,9 +66,7 @@ export interface IconParams {
   transform?: Transform;
 }
 
-export interface Attributes {
-  [key: string]: number | string;
-}
+export type Attributes = Record<string, number | string>;
 
 export interface LineAwesomeIcon {
   name: string;
@@ -127,17 +123,23 @@ export const laClassList = (props: LaProps): string[] => {
 };
 
 export const applyCssTransforms = (transformObj: Transform = {}): string => {
-  const transformsHandlers: Record<keyof Transform, (value: any) => string | null> = {
-    size: (value: number) => `scale(${1 + value / 10})`,
-    rotate: (value: number) => `rotate(${value}deg)`,
-    flipY: (value: boolean) => (value ? `scaleY(-1)` : null),
-    flipX: (value: boolean) => (value ? `scaleX(-1)` : null),
-    y: (value: number) => `translateY(${value}px)`,
-    x: (value: number) => `translateX(${value}px)`
-  };
-
   return (Object.keys(transformObj) as (keyof Transform)[])
-    .map(key => transformsHandlers[key](transformObj[key]))
+    .map(key => {
+      switch (key) {
+        case 'size':
+          return `scale(${1 + transformObj.size! / 10})`;
+        case 'rotate':
+          return `rotate(${transformObj.rotate}deg)`;
+        case 'flipY':
+          return transformObj.flipY ? `scaleY(-1)` : null;
+        case 'flipX':
+          return transformObj.flipX ? `scaleX(-1)` : null;
+        case 'y':
+          return `translateY(${transformObj.y}px)`;
+        case 'x':
+          return `translateX(${transformObj.x}px)`;
+      }
+    })
     .filter((value): value is string => value !== null)
     .join(' ');
 };
@@ -159,22 +161,22 @@ export const parseTransformString = (transformString: string): Transform => {
   return transformString
     .toLowerCase()
     .split(' ')
-    .reduce((acc: Required<Transform>, n: any) => {
+    .reduce((acc: Required<Transform>, n: string) => {
       const parts = n.toLowerCase().split('-');
       const first = parts[0];
-      let rest = parts.slice(1).join('-');
+      const restStr = parts.slice(1).join('-');
 
-      if (first && rest === 'h') {
+      if (first && restStr === 'h') {
         acc.flipX = true;
         return acc;
       }
 
-      if (first && rest === 'v') {
+      if (first && restStr === 'v') {
         acc.flipY = true;
         return acc;
       }
 
-      rest = parseFloat(rest);
+      const rest = parseFloat(restStr);
 
       if (isNaN(rest)) {
         return acc;
