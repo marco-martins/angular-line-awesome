@@ -35,7 +35,8 @@
             "lintFilePatterns": [
               "projects/angular-line-awesome/**/*.ts",
               "projects/angular-line-awesome/**/*.html"
-            ]
+            ],
+            "eslintConfig": "projects/angular-line-awesome/eslint.config.js"
           }
         }
       }
@@ -58,18 +59,11 @@
               "base": "dist/demo-example"
             },
             "index": "projects/demo-example/src/index.html",
-            "polyfills": [
-              "projects/demo-example/src/polyfills.ts"
-            ],
+            "polyfills": ["projects/demo-example/src/polyfills.ts"],
             "tsConfig": "projects/demo-example/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "projects/demo-example/src/favicon.ico",
-              "projects/demo-example/src/assets"
-            ],
-            "styles": [
-              "projects/demo-example/src/styles.scss"
-            ],
+            "assets": ["projects/demo-example/src/favicon.ico", "projects/demo-example/src/assets"],
+            "styles": ["projects/demo-example/src/styles.scss"],
             "scripts": [],
             "browser": "projects/demo-example/src/main.ts"
           },
@@ -122,18 +116,11 @@
           "builder": "@angular/build:karma",
           "options": {
             "main": "projects/demo-example/src/test.ts",
-            "polyfills": [
-              "projects/demo-example/src/polyfills.ts"
-            ],
+            "polyfills": ["projects/demo-example/src/polyfills.ts"],
             "tsConfig": "projects/demo-example/tsconfig.spec.json",
             "karmaConfig": "projects/demo-example/karma.conf.js",
-            "assets": [
-              "projects/demo-example/src/favicon.ico",
-              "projects/demo-example/src/assets"
-            ],
-            "styles": [
-              "projects/demo-example/src/styles.scss"
-            ],
+            "assets": ["projects/demo-example/src/favicon.ico", "projects/demo-example/src/assets"],
+            "styles": ["projects/demo-example/src/styles.scss"],
             "scripts": []
           }
         },
@@ -143,7 +130,8 @@
             "lintFilePatterns": [
               "projects/demo-example/**/*.ts",
               "projects/demo-example/**/*.html"
-            ]
+            ],
+            "eslintConfig": "projects/demo-example/eslint.config.js"
           }
         }
       }
@@ -151,9 +139,7 @@
   },
   "cli": {
     "analytics": false,
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   },
   "schematics": {
     "@schematics/angular:component": {
