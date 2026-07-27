@@ -52,7 +52,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
             "outputPath": {
               "base": "dist/demo-example"
@@ -144,18 +144,6 @@
               "projects/demo-example/**/*.ts",
               "projects/demo-example/**/*.html"
             ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/demo-example/e2e/protractor.conf.js",
-            "devServerTarget": "demo-example:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "demo-example:serve:production"
-            }
           }
         }
       }
