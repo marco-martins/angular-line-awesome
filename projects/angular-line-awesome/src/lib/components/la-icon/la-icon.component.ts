@@ -7,7 +7,9 @@ import {
   Renderer2,
   ChangeDetectionStrategy,
   ViewEncapsulation,
-  inject
+  inject,
+  booleanAttribute,
+  numberAttribute
 } from '@angular/core';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { LaStackItemSizeDirective } from '../../directives/la-stack-item-size/la-stack-item-size.directive';
@@ -30,6 +32,11 @@ import {
 } from '../../line-awesome.core';
 import { LaIconLibrary } from '../../services/la-icon-library.service';
 
+function toRotateProp(value: unknown): RotateProp | undefined {
+  const num = numberAttribute(value);
+  return num === 90 || num === 180 || num === 270 ? num : undefined;
+}
+
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'la-icon',
@@ -46,14 +53,14 @@ export class LaIconComponent implements OnChanges {
 
   @Input() icon!: IconProp;
   @Input() size?: SizeProp;
-  @Input() fixedWidth?: boolean;
-  @Input() rotate?: RotateProp;
+  @Input({ transform: booleanAttribute }) fixedWidth?: boolean;
+  @Input({ transform: toRotateProp }) rotate?: RotateProp;
   @Input() flip?: FlipProp;
   @Input() pull?: PullProp;
-  @Input() spin?: boolean;
-  @Input() pulse?: boolean;
-  @Input() border?: boolean;
-  @Input() inverse?: boolean;
+  @Input({ transform: booleanAttribute }) spin?: boolean;
+  @Input({ transform: booleanAttribute }) pulse?: boolean;
+  @Input({ transform: booleanAttribute }) border?: boolean;
+  @Input({ transform: booleanAttribute }) inverse?: boolean;
   @Input() styles?: Styles;
   @Input() classes: string[] = [];
   @Input() transform?: string | Transform;
