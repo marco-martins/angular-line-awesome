@@ -45,3 +45,8 @@ testem.log
 .DS_Store
 Thumbs.db
 /.angular
+
+# app
+*.env
+*.sh
+compose.yml
